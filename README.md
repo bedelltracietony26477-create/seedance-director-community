@@ -381,4 +381,6 @@ Star 不只是数字。它会帮助更多 AI 视频创作者发现这个项目�
 ·
 [🐛 Report an Issue](https://github.com/bedelltracietony26477-create/seedance-director-community/issues)
 
+**Created & maintained by LERler-Q**
+
 </div>
