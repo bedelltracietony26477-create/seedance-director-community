@@ -363,6 +363,23 @@ Star 不只是数字。它会帮助更多 AI 视频创作者发现这个项目�
 
 ---
 
+## 加入 CineWeaver 社区
+
+如果你正在做 AI 短剧、Seedance、AI 视频导演或提示词工作流，欢迎加入 CineWeaver 社区，一起交流真实生成案例、失败修复、导演方法和工作流迭代。
+
+<div align="center">
+
+<img src="assets/community-qr.png" width="260" alt="CineWeaver Community QR Code" />
+
+**扫码加入 AI 视频制作交流群**
+
+二维码如已过期，请添加微信：**LERler-Q**  
+添加时可备注：**CineWeaver / AI视频**
+
+</div>
+
+---
+
 ## Disclaimer
 
 **CineWeaver Director Engine 是独立的非官方社区项目。**
