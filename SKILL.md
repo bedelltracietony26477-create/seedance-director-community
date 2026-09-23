@@ -119,3 +119,5 @@ python3 scripts/continuity_audit.py continuity.json --format markdown
 - 每段站位、视线、动作、基础道具状态和退出状态可承接下一段。
 - 可见人物、匹配方向的场景、用户提供且需要锁定的关键道具和实际发声音频不应错绑。
 - 最终提示词按八模块完整版或四模块快速版输出，不混用模块，不暴露内部分析。
+
+<!-- CineWeaver Director Engine · Community v1.5.5 · Created by LERler-Q -->
