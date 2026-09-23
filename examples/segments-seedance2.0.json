@@ -1,0 +1,25 @@
+{
+  "model": "seedance2.0",
+  "expected_source_ids": ["S1"],
+  "expected_dialogue_ids": ["D1"],
+  "expected_narrative_node_ids": ["N1"],
+  "segments": [
+    {
+      "id": 1,
+      "source_id": "S1",
+      "duration": 14.0,
+      "dialogue_seconds": 4.0,
+      "pause_reaction_seconds": 2.0,
+      "action_seconds": 5.0,
+      "overlap_seconds": 1.0,
+      "shots": 6,
+      "dialogue_ids": ["D1"],
+      "narrative_node_ids": ["N1"],
+      "hook_seconds": 0.8,
+      "impact_shots": 1,
+      "contrast_axes": ["远/近", "静/动"],
+      "max_visual_stasis_seconds": 2.5,
+      "end_hook": "对手的手停在半空"
+    }
+  ]
+}
