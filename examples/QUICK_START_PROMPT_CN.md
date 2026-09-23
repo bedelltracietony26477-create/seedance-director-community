@@ -22,3 +22,7 @@
 ```
 
 如果你需要更严格的导演控制、长对白、复杂调度、多人物连续性或整集制作，请使用 [Advanced Starter Prompt](ADVANCED_STARTER_PROMPT_CN.md)。
+
+---
+
+*CineWeaver Director Engine · Community v1.5.5 · by LERler-Q*
