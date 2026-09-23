@@ -176,3 +176,7 @@ Seedance 2.0原则上每2—3秒出现一次有效视觉变化；Seedance 2.5原
 ```
 
 如果你只是第一次试用或想快速跑通流程，请使用 [Quick Start Prompt](QUICK_START_PROMPT_CN.md)。
+
+---
+
+*CineWeaver Director Engine · Community v1.5.5 · by LERler-Q*
