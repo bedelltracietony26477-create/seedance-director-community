@@ -1,0 +1,26 @@
+{
+  "model": "seedance2.5",
+  "expected_source_ids": ["S1"],
+  "expected_dialogue_ids": ["D1", "D2"],
+  "expected_narrative_node_ids": ["N1", "N2"],
+  "segments": [
+    {
+      "id": 1,
+      "source_id": "S1",
+      "duration": 24.0,
+      "dialogue_seconds": 9.0,
+      "pause_reaction_seconds": 4.0,
+      "action_seconds": 8.0,
+      "overlap_seconds": 2.0,
+      "shots": 8,
+      "dialogue_ids": ["D1", "D2"],
+      "narrative_node_ids": ["N1", "N2"],
+      "hook_seconds": 0.7,
+      "impact_shots": 1,
+      "contrast_axes": ["压迫/反压", "静/动"],
+      "max_visual_stasis_seconds": 3.0,
+      "microbeats": ["逼问建立", "证据推进", "反应余震"],
+      "end_hook": "证据落桌后对方失语"
+    }
+  ]
+}
