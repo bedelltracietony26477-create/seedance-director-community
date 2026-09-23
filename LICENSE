@@ -1,0 +1,8 @@
+# Licensing overview
+
+This repository uses two licenses.
+
+1. Program code, including files under `scripts/` and `tests/`, is licensed under the MIT License. See `LICENSE-CODE`.
+2. `SKILL.md`, files under `references/`, README files, methodology and textual examples are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0). See `LICENSE-DOCS`.
+
+Third-party trademarks, product names and model names are not licensed by this repository and remain the property of their respective owners.
