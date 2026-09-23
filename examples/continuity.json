@@ -1,0 +1,26 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "exit": {
+        "characters": {
+          "A": {"position": "画面左", "posture": "站立", "body_direction": "朝右", "right_hand": "持手机"}
+        },
+        "props": {
+          "phone": {"holder": "A", "hand": "right", "location": "胸前", "functional_state": "screen_on"}
+        }
+      }
+    },
+    {
+      "id": 2,
+      "entry": {
+        "characters": {
+          "A": {"position": "画面左", "posture": "站立", "body_direction": "朝右", "right_hand": "持手机"}
+        },
+        "props": {
+          "phone": {"holder": "A", "hand": "right", "location": "胸前", "functional_state": "screen_on"}
+        }
+      }
+    }
+  ]
+}
