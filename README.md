@@ -115,6 +115,19 @@ Audit
 
 ---
 
+## 使用入口
+
+推荐按下面的流程开始：
+
+**下载 Skill → 导入 → 复制启动提示词 → 粘贴剧本与参考素材 → 指定 Seedance 2.0 / 2.5 → 开始生成。**
+
+- [⚡ Quick Start Prompt｜快速启动提示词](examples/QUICK_START_PROMPT_CN.md)：适合第一次使用、快速测试和普通剧情段落。
+- [🎬 Advanced Starter Prompt｜专业导演启动提示词](examples/ADVANCED_STARTER_PROMPT_CN.md)：适合完整一集、复杂场面、多人物、长对白、动作戏和严格连续性任务。
+
+如果不指定模型，Community v1.5.5 默认按 **Seedance 2.0** 的短段逻辑执行。
+
+---
+
 ## 两套模型时长逻辑
 
 | Target | 标准分段 | 更适合 |
