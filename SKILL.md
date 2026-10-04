@@ -3,7 +3,9 @@ name: seedance-director-community
 description: "Direct Chinese shuangwen and high-impact short-drama scripts into continuity-aware Seedance 2.0/2.5 or equivalent AI-video prompts. Preserve every original line while selecting model-aware segment duration: 8–15 seconds for Seedance 2.0, and 16–30 seconds for Seedance 2.5 with an optional 15-second boundary segment when explicitly requested or dramatically justified. Design cinematic blocking, eyelines, physical action, emotional performance, dialogue beat maps, reaction ownership, failed actions, keyword visual landings, lightweight reference-image/audio binding, sound, editing, and cross-segment handoffs. Use for full episodes, single scenes, confrontation or action beats, long-dialogue staging, prompt repair, compact copy-ready prompts, or continuation of an established short-drama project."
 ---
 
-# Seedance电影导演 Community V1.5.5
+# CineWeaver Director Engine · Community V1.5.5
+
+**中文定位：Seedance 电影导演 Community · Created by LERler-Q**
 
 把完整剧本转化为可生成、可剪辑、可跨段衔接的爽文短剧AI视频提示词。V1.5.5以V1.5的视觉冲击、电影摄影、空间连续性和原台词硬锁为骨架，加入轻量台词编舞、Reaction Ownership、Failed Action、关键词视觉落点、基础参考绑定和模型时长分流。Seedance 2.0使用8–15秒短段；Seedance 2.5开放16–30秒长段，并允许在用户明确要求15–30秒或戏剧边界恰好完整时使用15秒边界段。强调好用、稳定、容易复制，不引入重型状态机。
 
