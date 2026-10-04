@@ -1,6 +1,10 @@
-# Seedance Director Community v1.5.5
+# CineWeaver Director Engine · Community v1.5.5
 
-An open-source directing Skill for AI short-drama production. It turns scripts into executable, auditable and continuity-aware prompts for Seedance 2.0 / 2.5 or equivalent video models.
+An open-source AI director engine for short-drama production. It turns scripts into executable, auditable and continuity-aware prompts for Seedance 2.0 / 2.5 or equivalent video models.
+
+**Created & maintained by LERler-Q.**
+
+[⬇️ Download v1.5.5](../../releases/download/v1.5.5/Seedance_Director_Community_v1.5.5.zip) · [📦 Releases](../../releases) · [中文 README](README.md)
 
 **Unofficial community project.** This repository is not affiliated with, sponsored by, or endorsed by ByteDance or the Seedance team.
 
