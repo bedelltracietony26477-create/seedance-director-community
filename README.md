@@ -2,7 +2,7 @@
 
 <img src="assets/icon.svg" width="92" alt="CineWeaver Director Engine" />
 
-# CineWeaver Director Engine
+# CineWeaver Director Engine — Seedance 2.0 / 2.5 AI Video Director Skill
 
 ### AI can generate shots. CineWeaver directs the scene.
 
