@@ -1,4 +1,4 @@
-# CineWeaver Director Engine · Community v1.5.5
+# CineWeaver Director Engine — Seedance 2.0 / 2.5 AI Video Director Skill · Community v1.5.5
 
 An open-source AI director engine for short-drama production. It turns scripts into executable, auditable and continuity-aware prompts for Seedance 2.0 / 2.5 or equivalent video models.
 
