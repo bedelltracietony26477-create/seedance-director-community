@@ -13,18 +13,20 @@
 
 **Community v1.5.5 · Optimized for Seedance 2.0 / 2.5**
 
-[⬇️ **Download v1.5.5**](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/download/v1.5.5/Seedance_Director_Community_v1.5.5.zip)
+**Created & maintained by LERler-Q**
+
+[⬇️ **Download v1.5.5**](../../releases/download/v1.5.5/Seedance_Director_Community_v1.5.5.zip)
 &nbsp;&nbsp;·&nbsp;&nbsp;
-[⭐ **Star CineWeaver**](https://github.com/bedelltracietony26477-create/seedance-director-community/stargazers)
+[⭐ **Star CineWeaver**](../../stargazers)
 &nbsp;&nbsp;·&nbsp;&nbsp;
-[📦 **Release**](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+[📦 **Release**](../../releases/tag/v1.5.5)
 &nbsp;&nbsp;·&nbsp;&nbsp;
 [English](README_EN.md)
 
 <br>
 
-[![Release](https://img.shields.io/github/v/release/bedelltracietony26477-create/seedance-director-community?label=release)](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/latest)
-[![CI](https://github.com/bedelltracietony26477-create/seedance-director-community/actions/workflows/ci.yml/badge.svg)](https://github.com/bedelltracietony26477-create/seedance-director-community/actions/workflows/ci.yml)
+![Release](https://img.shields.io/badge/release-v1.5.5-blue)
+[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 ![Seedance](https://img.shields.io/badge/Seedance-2.0%20%7C%202.5-black)
 ![Python](https://img.shields.io/badge/Python-standard%20library%20only-blue)
 ![License](https://img.shields.io/badge/license-MIT%20%2B%20CC%20BY%204.0-green)
@@ -85,7 +87,7 @@ Audit
 
 直接下载最新 Community Skill：
 
-### **[⬇️ Download CineWeaver Community v1.5.5](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/download/v1.5.5/Seedance_Director_Community_v1.5.5.zip)**
+### **[⬇️ Download CineWeaver Community v1.5.5](../../releases/download/v1.5.5/Seedance_Director_Community_v1.5.5.zip)**
 
 然后导入支持 Skills 的环境。入口文件为：
 
@@ -317,11 +319,11 @@ v1.5.5 是一套**完整可用**的开源导演工作流，同时有意保持轻
 - 改善了角色 / 道具 / 镜头连续性
 - 或者给你的 AI 视频工作流带来了一条有用规则
 
-### **[⭐ Star CineWeaver on GitHub](https://github.com/bedelltracietony26477-create/seedance-director-community)**
+### **[⭐ Star CineWeaver on GitHub](../..)**
 
 Star 不只是数字。它会帮助更多 AI 视频创作者发现这个项目，也会让我更容易判断哪些能力值得继续优先开放和维护。
 
-如果你发现真实生成失败案例，也欢迎直接提交 [Issue](https://github.com/bedelltracietony26477-create/seedance-director-community/issues)。
+如果你发现真实生成失败案例，也欢迎直接提交 [Issue](../../issues)。
 
 ---
 
@@ -347,7 +349,7 @@ Star 不只是数字。它会帮助更多 AI 视频创作者发现这个项目�
 
 **CineWeaver Director Engine · Community v1.5.5**
 
-- [Release v1.5.5](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+- [Release v1.5.5](../../releases/tag/v1.5.5)
 - [Changelog](CHANGELOG.md)
 
 ---
@@ -392,11 +394,11 @@ Star 不只是数字。它会帮助更多 AI 视频创作者发现这个项目�
 
 **Orchestrate the scene. Direct the generation.**
 
-[⬇️ Download](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/latest)
+[⬇️ Download](../../releases/latest)
 ·
-[⭐ Star](https://github.com/bedelltracietony26477-create/seedance-director-community)
+[⭐ Star](../..)
 ·
-[🐛 Report an Issue](https://github.com/bedelltracietony26477-create/seedance-director-community/issues)
+[🐛 Report an Issue](../../issues)
 
 **Created & maintained by LERler-Q**
 
