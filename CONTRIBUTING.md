@@ -1,6 +1,6 @@
 # Contributing
 
-感谢你参与 Seedance Director Community。这个项目希望把 AI 短剧导演方法变成可测试、可复用、可讨论的公共规则，而不是无限堆叠形容词。
+感谢你参与 CineWeaver Director Engine · Community。这个项目希望把 AI 短剧导演方法变成可测试、可复用、可讨论的公共规则，而不是无限堆叠形容词。
 
 ## 适合提交什么
 
