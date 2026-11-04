@@ -1,297 +1,126 @@
-<div align="center">
+# 创梦 导演skills Pro V1.6
 
-# 创梦 导演skills
+**完整Pro导演系统：把剧本组织成有表演、有空间、有动作因果、有声画与跨段连续性的AI视频提示词。**
 
-### Chuangmeng Director Skills
+开源发行 **v1.6.1 Pro** · 作者 **LERler-Q** · 前身 **CineWeaver Director Engine**
 
-**把完整剧本转成有表演、有调度、镜头清楚、前后连续的 AI 视频分段提示词。**
+[下载Pro完整版](../../releases/tag/v1.6.1) · [English](README_EN.md) · [Skill入口](SKILL.md)
 
-原台词保留 · 逐镜可见性 · 人物表演 · 动作衔接 · 空间眼线 · 声画连续 · 分段交接
+## 当前版本
 
-**Community v1.5.5 历史版 / v1.6.0 稳定版 / v2.0.0-beta.1 预览版**
+本次以现有 **Pro V1.6完整原包** 为源发布，完整保留导演规则、参考文档和4个审计脚本。项目名称、安装标识和公开说明已适配“创梦 导演skills”。
 
-Created & maintained by **LERler-Q**
+| 版本 | 内容 | 入口 |
+|---|---|---|
+| **v1.6.1 Pro** | 原Pro V1.6完整能力，本次默认发行 | [发布与下载](../../releases/tag/v1.6.1) |
+| v1.6.0 Community | 之前的社区稳定版，保留历史发行 | [历史下载](../../releases/tag/v1.6.0) |
+| v2.0.0-beta.1 Community | 现有社区状态流程预览版，保持原状 | [发布与下载](../../releases/tag/v2.0.0-beta.1) |
+| v1.5.5 Community | 历史轻量社区版 | [详细介绍](docs/releases/v1.5.5.md) · [下载](../../releases/tag/v1.5.5) |
 
-[下载稳定版](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.6.0) · [体验 2.0 预览版](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v2.0.0-beta.1) · [English](README_EN.md) · [反馈问题](https://github.com/bedelltracietony26477-create/seedance-director-community/issues)
+Pro V1.6是导演系统版本，v1.6.1是本次开源发行号；它们与Seedance等视频模型的版本号分别记录。
 
-</div>
+## 完整Pro有哪些能力？
 
-> **当前页面：v1.6.0 稳定版。** v2.0.0-beta.1 在独立预览分支维护。
-
-前身为 **CineWeaver Director Engine / Seedance Director Community**。项目名称更新为“创梦 导演skills”，现有仓库地址与历史版本保留；Skill 安装标识更新为 `chuangmeng-director`。
-
-## 这是什么？
-
-创梦 导演skills 是一套供支持 Agent Skills 的 AI 助手读取和执行的**影视导演工作流**，附带可在本地运行的 Python 审计工具。
-
-你提供剧本、参考素材和制作要求，工作流先梳理这场戏的情绪、动作与空间，再组织人物表演、镜头、对白、声音和跨段连续性，输出可交给目标视频生成平台的提示词。
-
-它的制作目标是让每个分段都回答清楚：**这一刻拍谁、画面能看到什么、人物怎么动、声音怎么接、下一段从什么状态开始。**
-
-当前交付形式为 **Skill 指令 + 导演参考文档 + 示例 + 审计脚本**。视频生成仍需在你选择的平台完成；本项目没有内置视频生成服务，也不会自动上传素材或调用模型生成影片。
-
-## 它针对哪些制作问题？
-
-| 常见问题 | 工作流如何处理 |
+| 能力 | 制作中的用途 |
 |---|---|
-| 长对白只有一个近景，人物站着念词 | 先分析语义节拍，安排动作、反应、注意目标与切点；跨镜声音保持连续 |
-| 单人镜头写“看向某人”，模型不清楚方向 | 写成相对镜头的左/右、画内/画外和视线高度，并与场景轴线对应 |
-| 特写中同时要求脚步、全身动作和手部细节 | 按当前景别筛选真正可见的行为，需要时补合适的局部镜头 |
-| 两个连续动作被生成成先后等待 | 标明动作起势、路径、接触、落点与重叠窗口，下一镜从当前动作相位接入 |
-| 一切镜就重复起句或重新吸气 | 把跨镜对白作为同一次声音事件；画外发声用 O.S. 等模式标明归属 |
-| 反打后左右混乱、人物无故换座 | 用固定场景锚点记录真实站位，再分别描述每个机位的构图和眼线 |
-| 下一段道具换手、坐姿变跪姿 | 重建完整进入/退出状态；2.0 预览版增加结构化状态账本辅助检查 |
-| 提示词很长，却说不清镜头里有什么 | 明确每镜主体、实际入画者、前后景、可见动作、一个主要运镜和动作落点 |
+| 原台词硬锁与原文覆盖账本 | 保留台词、顺序及剧情事件，容量不足时重新分段 |
+| Character Performance Signature | 保存角色长期表演习惯，按触发条件与强度调用 |
+| Dialogue Choreography | 按语义节拍编排对白、动作、反应与镜头切点 |
+| Reaction Ownership | 将关键画面交给真正承担信息和情绪变化的人 |
+| Failed Action | 写清被打断的动作、停在半程的姿态及后果 |
+| Character Knowledge Boundary | 约束人物依据已获得的信息产生反应 |
+| Screen Attention Budget | 根据人物策略和权力变化分配画面注意力 |
+| Prop Semantic State | 维护持有人、手位、接触、佩戴/手持/放置关系、位置区域、朝向和功能 |
+| Voice Identity State | 统一角色音色，区分现实、电话、O.S.、OS与VO的空间和口型模式 |
+| Semantic ID / Reference Manifest | 跨段保持素材身份，独立分段重新建立本地编号 |
+| 实际镜头内@绑定 | 绑定本镜可见人物、正确场景方向、可见连续道具及实际音色 |
+| Decision Contact POV | 拍清按键、签字、解锁、拿证据等决定性物理触点 |
+| Action Insert Montage | 将复合动作编排为同一条因果明确的动作链 |
+| START_STATE / END_STATE | 记录并衔接人物、道具、动作、声音与已知信息 |
 
-制作时可根据剧本、参考素材和目标平台调整镜头与分段。
+## 如何工作？
 
-## 选择哪个版本？
+1. 读完指定范围，建立原台词与剧情节点覆盖记录。
+2. 梳理情绪、人物目标、信息边界、策略与权力变化。
+3. 新项目建立导演圣经、角色表演签名、场景与长期资产。
+4. 核算对白、气口、反应、动作与可重叠时间，给出完整分段总表。
+5. 排站位、身体/面部朝向、眼线、路径、道具与轴线，再选择摄影机。
+6. 建立本段参考清单，在实际镜头中绑定可见/可听素材。
+7. 编排表演、镜头、声音和剪辑，生成完整START_STATE与END_STATE。
+8. 使用原版审计工具检查时长、绑定与连续性交接。
 
-| 能力 / 使用方式 | v1.5.5 历史社区版 | v1.6.0 稳定版 | v2.0.0-beta.1 预览版 |
-|---|---|---|---|
-| 安装标识 | `seedance-director-community` | `chuangmeng-director` | `chuangmeng-director` |
-| 原台词与对白编舞 | 原台词硬锁、Beat Map Lite、Reaction Ownership | 继承并完善执行与审计 | 继承1.6 |
-| 可见性、眼线与动作 | 已有空间、表演与动作过程规则 | 加强逐镜可见性、镜头相对眼线、动作相位 | 继承1.6 |
-| 镜头节奏 | 约2–3秒有效视觉变化，可有动机延长 | 默认2–4秒单镜且不超过4秒；整段整数秒 | 继承1.6 |
-| 参考绑定 | 参考表定义 + 实际镜头调用 | 默认参考表集中，逐镜调用为兼容策略 | 继承1.6 |
-| 独立分段与基础状态 | 人物、手位、道具与进入/退出交接 | 继承并明确执行约束 | 进一步结构化 |
-| 导演版剧本 | 原文覆盖、表演与动作梳理 | 明确动作补充与原文事实边界 | SOURCE → DIRECTOR_SCRIPT → STATE → EVENT 流程 |
-| 状态账本与事件回放 | 无新增账本审计器 | 无新增账本审计器 | `state_ledger_audit.py`，含情绪/知识等显式状态 |
-| 审计工具 | 4个历史标准库工具 | 4个工具及新版对白/时码/参考校验 | 增加第5个账本工具 |
-| 版本定位 | 旧项目复现、沿用旧工作流 | 日常使用的默认选择 | 状态流程试用、反馈与迭代 |
+## Pro参考绑定方式
 
-**第一次使用，建议选 v1.6.0；需要试用结构化状态记录与局部返修流程时，再选择 v2.0.0-beta.1。**
+Pro保留原始逐镜绑定规则：**参考表定义编号，镜头正文重新调用实际素材。**
 
-项目版本号与视频模型版本号独立：**创梦 v2.0 不等于 Seedance 2.0**，社区版也不与私有 Pro 版按版本号逐项对齐。
+- 每个独立段的图片、音频分别从 `@[图片1]`、`@[音频1]` 连续编号。
+- 可见人物绑定人物图；有场景参考时绑定实际摄影方向。
+- 可见的CONTINUITY_PROP绑定独立道具图；LOCAL_PROP默认文字描述。
+- 实际发声绑定音色；只通过画外/电话/OS出现的角色不强行绑定人物图。
+- Semantic ID跨段稳定，本地上传编号可以重建。
 
-- [v1.6.0 发布与安装包](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.6.0)
-- [v2.0.0-beta.1 发布与安装包](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v2.0.0-beta.1)
-- [v2.0 预览分支](https://github.com/bedelltracietony26477-create/seedance-director-community/tree/preview/v2.0)
-- [v1.5.5 历史版本](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+[完整参考绑定规则](references/reference-asset-binding.md) · [道具状态](references/prop-and-object-state.md)
 
-## v1.5.5 历史版说明
+## 输出格式
 
-v1.5.5 已有原台词硬锁、轻量对白编舞、Reaction Ownership、Failed Action、空间摄影、逐镜参考绑定和基础跨段交接。原安装标识为 `seedance-director-community`，原附件为 `Seedance_Director_Community_v1.5.5.zip`。
-
-[查看 v1.5.5 详细说明](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/main/docs/releases/v1.5.5.md) · [历史发布与下载](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
-
-历史版保留原内容与使用方式；上文三版本对照列出新增规则，使用旧包时请以旧版文档和参数为准。旧名与新名不同可能导致两版同时安装，需在平台中明确选择当前使用版本。
-
-## 从剧本到执行提示词
-
-| 阶段 | 需要明确的内容 |
+| 八模块完整版 | 内容 |
 |---|---|
-| 1. 读完指定范围 | 场次、人物关系、原台词、动作事件、信息揭示；材料缺失时说明实际读取范围 |
-| 2. 定情绪与动作 | 情绪起点、升级、爆点、峰值、回落、收尾；补清动作过程，不新增剧情事实 |
-| 3. 建立空间 | 固定场景锚点、座位、身体方向、视线、道具、行动路径和 180° 轴线 |
-| 4. 分段与计时 | 按戏剧变化切段，核算对白、气口、动作、反应和可重叠时间 |
-| 5. 编排逐镜执行 | 决定每镜主体、景别、前后景、表演、运镜、声音和切点 |
-| 6. 检查与交接 | 对照原文，检查时间轴、参考绑定、动作相位及相邻段状态；只修出错变量 |
+| `[声画硬锁]` | 声画、原台词、环境声与发声规则 |
+| `[参考图 / 音频对应表]` | 本段实际使用的参考 |
+| `[本段任务]` | 戏剧变化、冲突、时长、冲击、对比与钩子 |
+| `[人物状态、站位、面部朝向、轴线与群像]` | 人物、空间、路径和初始道具状态 |
+| `[风格、光影与氛围]` | 摄影语法、真实光源和场景质感 |
+| `[镜头时间轴]` | 逐镜绑定、动作、表演、原台词、声音与切点 |
+| `[声音与剪辑]` | 持续声场、对白跨镜、声音桥与剪辑 |
+| `[连续性底线]` | 退出状态及相邻段交接 |
 
-处理整集时，先建立完整分段总表，再输出全部分段。只改单段时缩小工作范围，保留未授权修改的原台词、参考映射与最终落点。
+简洁任务使用 `[STYLELOCK]`、`[REFERENCE]`、`[SHOT]`、`[BEATS]` 四模块快速版。Pro快速版的逐镜节拍位于BEATS模块。
 
-## 核心导演规则
+[完整版示例](examples/full-prompt.txt) · [快速版示例](examples/quick-prompt.txt) · [原版输出契约](references/final-output-contract.md)
 
-### 原台词与声音事件
+## 安装与启动
 
-原台词按原人物、原字、原标点、原顺序组织，不靠删词或加速念词塞进时长。台词只在执行时间轴发声一次；源剧本确实重复的台词仍按原文保留。
+下载 `Chuangmeng_Director_Skills_Pro_v1.6.1.zip`，解压后按平台Agent Skills安装方式导入 `chuangmeng-director-pro/`，入口为 `SKILL.md`。
 
-长句可以按连续原文拆到相邻镜头中，串接后必须还原完整原句。**Cut ≠ Voice Reset**：切到听者时，说话者可保持同场 O.S.；重新入画后从当前发声位置接续口型。
-
-默认对白使用 `{}`、音效使用 `<>`；默认无字幕、无背景音乐、无额外旁白。原剧本已有 VO/旁白或用户明确指定时按要求保留。
-
-### 镜头里真正能看到什么
-
-每镜写清景别、主体、实际入画者、前景与后景，以及当前景别可见的表演。没有人物遮挡时直接写清，不凭空加肩膀、人头或画外人物。
-
-单人镜头的眼线使用“镜头右侧画外、略高于镜头”等具体方向。多人镜头可以描述入画人物之间的相互看向。面部特写不承担桌下脚步等不可见动作，需要时切到合适景别。
-
-### 动作有过程，剪辑接得上
-
-关键动作按**起势 → 发力/路径 → 接触 → 结果 → 落点**展开，同时发生的动作注明重叠时段。跨镜保留当前动作相位，避免重新起手或重复完成同一个事件。
-
-未完成动作也有连续性：伸手、欲起身、欲离开等动作被打断后，要保留停在半程的姿态与后果。情绪通过呼吸、手指、喉部、重心或身体控制表现，表演不能干扰台词自然发声。
-
-### 空间先成立，再决定摄影机
-
-固定场景锚点负责真实位置，例如“桌左椅”；镜头左/右负责当前画面构图。正反打可能改变屏幕左右，不能据此让人物无故换座。
-
-明显走位要有路径；换边需要可见越轴、轴上镜或重新建立空间。每镜保留一个主要注意中心和一个主要运镜，切镜应带来新信息、动作阶段、反应或注意目标。
-
-### 参考素材集中绑定
-
-每个独立分段都保留参考表，仅列真实提供且本段使用的人物、场景方向、关键道具和声音素材。默认所有 `@` 集中在参考表，镜头正文使用语义名称。
-
-未指定编号时，图片与音频分别从 `@[图片1]`、`@[音频1]` 连续编号；用户已有明确编号时服从其设置。没有参考素材时明确说明，不能补造编号。逐镜 `@` 调用作为用户明确要求时的兼容策略保留。
-
-## 最终会得到什么？
-
-默认每个分段使用以下八个模块：
-
-| 模块 | 用途 |
-|---|---|
-| `[声画硬锁]` | 画幅、时段、场景与发声规则 |
-| `[参考图 / 音频对应表]` | 本段素材身份与本地编号；缺失素材如实说明 |
-| `[本段任务]` | 唯一戏剧变化、情绪起终点、段长与必要气口/动作重叠 |
-| `[人物状态、站位、轴线与群像]` | 完整进入状态、座位、朝向、手位、道具与行动路径 |
-| `[风格、光影与氛围]` | 实际光源、方向、冷暖、材质与景深层级 |
-| `[镜头时间轴]` | 各镜头时间码、景别、构图、动作、表演、原台词、单次声音与切点 |
-| `[声音与剪辑]` | 持续底噪、空间处理、对白跨镜与声桥 |
-| `[连续性底线]` | 完整退出状态及下一段需要继承的物理和情绪状态 |
-
-用户明确要求简洁时可用四模块快速版：`[STYLELOCK]`、`[REFERENCE]`、`[SHOT]`、`[BEATS]`。快速版压缩呈现，仍需保留原台词、必要动作、空间与退出状态。
-
-[查看八模块完整示例](examples/full-prompt.txt) · [查看快速版示例](examples/quick-prompt.txt) · [输出契约](references/final-output-contract.md)
-
-## 一个动作如何写得更可执行？
-
-以下用两个动作说明如何补清可见过程：
-
-| 简略动作 | 补清可见过程 |
-|---|---|
-| “甲放下笔，抬眼看向乙。” | 手部局部：右手仍握笔，笔身连续下降并接触桌面；手指保持压住笔。随后切甲单人近景，从低位视线接入，抬眼至镜头右侧画外。笔不重新拿起，坐姿不变。 |
-| “乙想伸手，最后收回。” | 先建立手的起点；向明确方向伸出，未接触前停在半程；沿可见路径收回并落定。下一镜从收回后的状态开始。 |
-
-补充的范围是已有事件的动作路径、接触和衔接；人物为何行动、掌握什么信息，仍需以原剧本为依据。
-
-## 安装与第一次使用
-
-### 1. 选择并下载版本
-
-从 Release 下载对应安装包：
-
-- 稳定版：`Chuangmeng_Director_Skills_v1.6.0.zip`
-- 预览版：`Chuangmeng_Director_Skills_v2.0.0-beta.1.zip`
-
-解压后入口为 `chuangmeng-director/SKILL.md`。按你所用平台的 Agent Skills 安装方式导入该目录；如平台支持直接导入 ZIP，按其说明操作。
-
-两个版本使用相同安装标识 `chuangmeng-director`，切换版本时只保留一个，避免互相遮盖。旧名 `seedance-director-community` 在指令中作为自然语言兼容别名识别；平台的技能选择器仍应使用新安装标识。
-
-### 2. 准备输入
-
-| 输入 | 建议提供的内容 |
-|---|---|
-| 剧本 | 完整目标集或明确选段，包含原台词和动作描述 |
-| 生成参数 | 实际目标模型、平台当前时长上限、画幅与媒介 |
-| 视觉参考 | 已有人物、场景主/反打、关键道具或站位图；没有时也可按文字执行 |
-| 连续性信息 | 改单段或续接时，提供前段退出、后段进入及已确定的状态 |
-| 本次要求 | 完整版/简洁版、节奏、镜头偏好与允许修改的范围 |
-
-### 3. 复制启动指令
+安装标识是 **`chuangmeng-director-pro`**，原Pro技能名为 `direct-episode-to-seedance-prompts-pro-v1-6`。社区版使用 `chuangmeng-director`；同时存在时请明确选择Pro。
 
 ```text
-使用 创梦 导演skills（$chuangmeng-director）。
-
-目标模型：[填写实际模型]
-平台当前支持的单段时长上限：[填写]
-画幅与媒介：[例如16:9，真人写实 / 3D动画]
-处理范围：[整集 / 场次 / 指定选段]
-
-完整读取指定范围，保留原剧情、原台词、标点和顺序。
-先梳理情绪曲线、导演版动作和场景空间，再给完整分段总表与全部提示词。
-每段为整数秒，默认单镜2–4秒且不超过4秒；超时继续拆段。
-单人镜头明确实际入画者、前后景及相对镜头的眼线。
-连续动作写清相位与重叠窗口，台词跨镜保持同一次发声事件。
-参考素材集中在对应表绑定，每段完整重建进入和退出状态。
-默认输出八模块完整版。
-
-剧本：[粘贴完整内容]
-参考与已有状态：[补充素材及连续性信息]
+使用 $chuangmeng-director-pro 处理完整剧本。
+目标平台与当前上限：[填写]
+画幅及媒介：[填写]
+保留全部原台词，先排表演、对白编舞、站位、道具与声音，再设计摄影机。
+启用角色表演签名、Screen Attention Budget、Prop Semantic State与Voice Identity State。
+建立Semantic ID与每段本地Reference Binding Manifest，在实际镜头中绑定素材。
+按Standard/Extended核算时长，先给完整分段表，再给全部八模块提示词与连续性交接。
+剧本、参考及已有状态：[粘贴]
 ```
 
-[快速启动指令](examples/QUICK_START_PROMPT_CN.md) · [制作启动指令](examples/ADVANCED_STARTER_PROMPT_CN.md)
+Standard默认8–15秒；用户授权且平台支持时可用16–30秒Extended。目标平台支持能力决定实际上限。Pro保留原始节奏与计时逻辑，不套用此前社区版新增的单镜4秒硬上限或参考表集中调用策略。
 
-## 时长与模型适配
+## 原版工具
 
-项目提供以下时长工作档，实际分段以目标平台当前支持的上限为准：
-
-| 工作档 | 分段范围 | 说明 |
-|---|---|---|
-| Seedance 2.0 档 | 8–15 秒 | 超出已确认上限时继续拆分 |
-| Seedance 2.5 档 | 16–30 秒 | 必要时可用 15 秒边界段；长段维持一个主要戏剧目标 |
-| 局部补拍 | 按用户要求 | 4秒、6秒等短补拍不强行凑到默认下限 |
-
-实际执行以用户界面或官方规格当前支持的上限为准。确认平台支持长段时，可优先安排 20–25 秒，最长不超过实际能力与 30 秒。
-
-**单镜时长与单段时长是两回事**：一个 24 秒分段可以由多个 2–4 秒镜头组成。用户明确要求长镜头时可调整默认上限。时间码按 0.1 秒规划，用于组织动作、发声与剪辑点。
-
-## v2.0 预览：轻量状态账本
-
-v2.0 将原文事实、导演版动作、场景状态与逐镜事件分层处理。工作流依据账本重建各段完整提示词；审计脚本检查账本字段与状态交接，导演据此组织各段执行内容。
-
-| 状态类别 | 记录内容 |
+| 脚本 | 用途 |
 |---|---|
-| 人物身体 | 固定位置、坐/站姿、身体方向、眼线、左右手与动作相位 |
-| 关键道具 | 持有人、持有手、位置、朝向和功能状态 |
-| 情绪与信息 | 当前情绪、已经获得的事实ID |
-| 镜头事件 | 哪一镜发生什么变化、变化前值与变化后值 |
-| 分段接口 | 完整 `entry` 和 `exit`，用于相邻段交接 |
-
-账本审计的两条核心关系：
-
-```text
-本段 entry + 按时间排序的镜头 changes = 本段声明的 exit
-上一段 exit = 下一段 entry
-```
-
-下一段的首动作变化发生在首镜事件中，不能用“首动作会改变”提前豁免入口不一致。画外人物和未入画道具仍保留在场景账本中。
-
-**当前 beta 范围为同一连续场景、固定角色与道具集合。** 新场景、新增实体或明确时间跳跃需另建账本。
-
-[状态流程与返修指南](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/preview/v2.0/references/community-state-workflow.md) · [可运行账本](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/preview/v2.0/examples/state-ledger.json)
-
-## 审计工具与使用示例
-
-所有审计脚本使用 **Python 标准库**。使用 Skill 生成提示词不以运行 Python 为前提；脚本用于进一步检查结构与显式状态。
-
-| 工具 | 版本 | 检查范围 |
-|---|---|---|
-| `dialogue_timing.py` | 两版 | 估算中文对白、标点停顿、气口与反应时长 |
-| `segment_timing_audit.py` | 两版 | 分段时长档、容量与相关节拍配置 |
-| `prompt_audit.py` | 两版 | 单段模块、参考编号、对白原文、镜头时间码与上限 |
-| `continuity_audit.py` | 两版 | 基础人物/道具状态与相邻段交接 |
-| `state_ledger_audit.py` | 仅 2.0 预览版 | 账本字段、镜头事件回放、退出结果与跨段入口一致性 |
-
-在安装包解压后的 `chuangmeng-director/` 或对应版本的仓库源码根目录，可运行：
+| `dialogue_timing.py` | 对白、气口、反应、动作、重叠与分段建议 |
+| `segment_timing_audit.py` | Standard/Extended容量、覆盖、冲击与密度 |
+| `prompt_audit.py` | 八/四模块、逐镜@、对白、摄影与声音规则 |
+| `continuity_audit.py` | 人物、道具语义、声音身份、知识与交接 |
 
 ```bash
-python3 scripts/dialogue_timing.py --text '我不会再退了。' --mode restrained --format json
+python3 scripts/dialogue_timing.py --text '我不会再退了。' --mode restrained --segment-mode standard --format json
+python3 scripts/segment_timing_audit.py examples/segments-standard.json --format json
 python3 scripts/prompt_audit.py examples/full-prompt.txt --dialogue-json examples/dialogue.json --format json
-python3 scripts/segment_timing_audit.py examples/segments-seedance2.0.json --format json
 python3 scripts/continuity_audit.py examples/continuity.json --format json
 ```
 
-仅在 **2.0 预览版**目录运行状态账本检查：
+## 完整性与来源
 
-```bash
-python3 scripts/state_ledger_audit.py examples/state-ledger.json --format json
-```
+[SOURCE_MANIFEST.json](SOURCE_MANIFEST.json) 记录原Pro包每个文件的SHA-256及导出方式。全部原始参考文档、4个审计脚本与原图标逐字节包含；SKILL.md仅更换安装名与标题，界面元数据同步品牌和调用名。
 
-`prompt_audit.py` 一次接收一个执行分段。期望台词列表应对应该段的实际发声范围；连续一句可拆成相邻镜头子串，不能跨事件重排。要求逐镜参考调用时加 `--reference-policy shot`；明确要求长镜时用 `--max-shot-seconds` 设置对应上限。
+[角色表演签名](references/character-performance-signatures.md) · [长段模式](references/extended-segment-mode.md) · [对白编舞](references/dialogue-choreography.md) · [版本记录](CHANGELOG.md)
 
-## 适用场景与社区版范围
+## 许可与作者
 
-适合完整单集、单场戏、多人物对白、情绪冲突、连续动作、局部补拍，以及需要跨段衔接的叙事影像提示词制作。可以指定真人、动画等媒介，具体风格与资产应由剧本、参考和用户要求确定。
+程序代码采用[MIT](LICENSE-CODE)；Skill指令、方法论、文档及文字示例采用[CC BY 4.0](LICENSE-DOCS)。作者署名 **LERler-Q**，项目名“创梦 导演skills”，前身CineWeaver Director Engine。
 
-社区版保持可读、可修改、可复用。v2.0 的轻量账本是独立社区实现，不包含私有 Pro 的高级角色表演签名、完整道具语义状态机、量化画面预算或高级声音身份系统。
-
-## 示例、文档与反馈
-
-- [Skill 入口](SKILL.md)
-- [完整执行示例](examples/full-prompt.txt) / [快速版示例](examples/quick-prompt.txt)
-- [逐镜执行规则](references/shot-execution.md) / [输出契约](references/final-output-contract.md)
-- [版本记录](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/main/CHANGELOG.md) / [2.0 预览版记录](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/preview/v2.0/CHANGELOG.md)
-- [贡献说明](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/main/CONTRIBUTING.md) / [提交问题](https://github.com/bedelltracietony26477-create/seedance-director-community/issues)
-
-欢迎提供可复现的提示词、审计误报与生成失败描述。反馈时请写明版本、目标模型和时长上限、预期行为、实际现象及最小复现材料；仅提交你有权公开的素材，并移除个人信息。
-
-## 许可与署名
-
-| 内容 | 许可 |
-|---|---|
-| 程序代码 | MIT，见 [LICENSE-CODE](LICENSE-CODE) |
-| Skill 指令、方法论、文档与文字示例 | CC BY 4.0，见 [LICENSE-DOCS](LICENSE-DOCS) |
-
-保留作者署名 **LERler-Q**，前身项目为 **CineWeaver Director Engine**。再分发或修改时按相应许可证要求署名、链接许可并说明修改。
-
-本项目为独立、非官方社区项目，与 ByteDance / Seedance 团队不存在隶属、赞助或官方背书关系。第三方模型名、产品名与商标归其权利人所有。
+本项目为独立、非官方项目，第三方模型、产品名称与商标归其权利人。

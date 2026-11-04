@@ -1,17 +1,24 @@
-# 创梦 导演skills v1.6.0
+# 创梦 导演skills Pro V1.6 · 开源发行 v1.6.1
 
-CineWeaver / Seedance Director Community 更名为“创梦 导演skills”，作者 LERler-Q。
+本次发布为原 Pro V1.6 完整技能包的开源发行。16份导演参考文档、4个原版审计脚本和原版图标完整包含；仅调整Skill名称、标题与界面安装元数据，并增加公开说明、示例和打包文件。
 
-- 增加逐镜可见性、镜头相对眼线、前后景与动作相位规则。
-- 默认单镜不超过4秒；整段整数秒，时间轴检查起点、间隙与闭合。
-- 默认参考@集中于参考表；保留逐镜@兼容参数。
-- 强化跨镜连续对白；允许原文连续子串分配到相邻镜头，并保留源剧本真实重复台词。
-- 精简入口与启动说明，保留标准库计时和连续性工具。
+## Pro完整能力
 
-下载附件 `Chuangmeng_Director_Skills_v1.6.0.zip`，解压后入口为 `chuangmeng-director/SKILL.md`。旧调用名可在自然语言中继续使用；安装元数据改为 `chuangmeng-director`。
+- Character Performance Signature：角色长期表演签名与轻/中/重变体。
+- Dialogue Choreography、Reaction Ownership、Failed Action与Character Knowledge Boundary。
+- Screen Attention Budget：按戏剧变化分配画面注意力。
+- Prop Semantic State：持有人、手位/接触、关系模式、位置区域、功能状态及持续性。
+- Voice Identity State：声音身份、现实/画外/电话/内心模式、口型与空间处理。
+- 稳定Semantic ID与分段Reference Binding Manifest；实际镜头内绑定人物、场景、连续道具及音色。
+- Decision Contact POV、Action Insert Montage、Standard/Extended分段、八模块完整版及四模块快速版。
+- 原版对白计时、分段、提示词绑定和连续性审计脚本。
 
-本版为社区稳定工作流，适合完整剧本、单场戏和局部补拍的分段提示词制作。
+## 下载与使用
 
-v2.0.0-beta.1 在独立预览分支提供轻量状态账本与局部返修流程。社区版与私有 Pro 版分别维护。
+下载 `Chuangmeng_Director_Skills_Pro_v1.6.1.zip`，入口为 `chuangmeng-director-pro/SKILL.md`，调用名 `$chuangmeng-director-pro`。
 
-代码 MIT；指令、方法论和文档 CC BY 4.0。现有 v1.5.5 历史版本保留。
+原Pro技能名 `direct-episode-to-seedance-prompts-pro-v1-6` 记录于SOURCE_MANIFEST.json。该清单逐项记录原包文件校验值，参考文档、4个审计脚本及原图标保持原始内容。
+
+原v1.6.0社区版继续作为历史发行保留。v2.0.0-beta.1的分支、源码、Release和安装包均保持原状。
+
+代码MIT；Skill指令、方法论、文档及文字示例CC BY 4.0。作者LERler-Q，项目名“创梦 导演skills”，前身CineWeaver Director Engine。

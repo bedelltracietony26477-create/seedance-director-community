@@ -1,0 +1,124 @@
+{
+  "edition": "Pro V1.6",
+  "release_version": "1.6.1",
+  "source_skill_name": "direct-episode-to-seedance-prompts-pro-v1-6",
+  "installed_skill_name": "chuangmeng-director-pro",
+  "export_policy": "Complete original package. Only SKILL.md name/title and agents/openai.yaml display/install metadata are adapted for the public project. All source references, audit scripts and assets are included byte-for-byte.",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "source_sha256": "7b24a45aebfa72bc761b78df472cee39d4f4eba94d580605999884589fce7a8a",
+      "policy": "branding_only"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "source_sha256": "f2b1e2aedaf18f56e1f4bfddb66e7f9128b07c3cc1813500c65b68093ebbf27d",
+      "policy": "branding_only"
+    },
+    {
+      "path": "assets/icon.svg",
+      "source_sha256": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/blocking-eyelines-and-continuity.md",
+      "source_sha256": "14f6d515078636c24560bdd449aff2c99f0b01e9abb361045ca58b165d3f97b8",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/camera-grammar-and-combinations.md",
+      "source_sha256": "90525148b023ca014e23446bbb07e26550e8e4e04a3ec131a9f050a94653df57",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/character-performance-signatures.md",
+      "source_sha256": "df04330edca78a422c826c29154230000a449b6da268baf832ac3f6c48cc3b2f",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/crowd-sound-and-editing.md",
+      "source_sha256": "053a6c33e1dfd507e33e8657efd2c3aee0614b7bbd7aa6d672eb4254d6a122c1",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/dialogue-choreography.md",
+      "source_sha256": "5d136adbbc3ca98bb9833039ae6cad67d773cc68eab95545b9fbb7a109f09d05",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/emotion-performance-and-pauses.md",
+      "source_sha256": "4e6bdac8601581382d4dce0e267a4857aa38ae114ce1cfda39ee03049c5988b9",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/episode-segmentation-and-timing.md",
+      "source_sha256": "0a9a4c2bd4f58ff7a9877be2bb299fa2a820331cd8ca40fdf5a97ffa2855b0f9",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/extended-segment-mode.md",
+      "source_sha256": "9de690af5c8af41b3f862d120899c4fa7b217697bcc734b377e909403bc59b1f",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/final-output-contract.md",
+      "source_sha256": "e0bb97d19370ba76a8530f420d4d419b7ceb50d581ed7244dc133b64f38942c6",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/physical-performance-and-simulation.md",
+      "source_sha256": "8228f3471e200b71f6d0210e5ce8912046d50bf6390d19997393febc717f943f",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/project-analysis-and-director-bible.md",
+      "source_sha256": "9116aaf9e1d62d1ec3d82b5a4e5621f62962fcf3ea5857818e0f5cdc4ddab55f",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/prop-and-object-state.md",
+      "source_sha256": "26cf9df49f34ee93716ffa8bbe81a1c313cfc53698c13cc567182cab209b501f",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/quality-gates.md",
+      "source_sha256": "bf397c3fbd9053b7c2f9d15d1ed379e80f72e5b9e501590ad8f8adf9d03f206a",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/reference-asset-binding.md",
+      "source_sha256": "f36bd74d2fbdeee167bc84bb5b8da1815383f11124657700d473d7276ad61da4",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/short-drama-visual-impact-engine.md",
+      "source_sha256": "f16d721ddf9017ed13d97198afde2ae3208e52fe90fe1240f82cf1d6a68d417c",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "references/special-narrative-transforms.md",
+      "source_sha256": "b0a4c75bcfea02c50e61c1c6fd7dc7f0797b387b181f6142659fb937b1995ddc",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "scripts/continuity_audit.py",
+      "source_sha256": "e1e25adb5ee0ccef0e411a02e910c3d9711e414e91f55155bfe9789ea0441964",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "scripts/dialogue_timing.py",
+      "source_sha256": "71a067a5d3a77192f3ada3d63a530e569825a72b6dcc0c1e2f4cfcf3d97fede8",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "scripts/prompt_audit.py",
+      "source_sha256": "98c956398fffcb6bd9f13601521334614aa41eb08719f473cd1c2bcd91a2381c",
+      "policy": "byte_identical"
+    },
+    {
+      "path": "scripts/segment_timing_audit.py",
+      "source_sha256": "86629f7e19eb7ca3bcb4e62c9014d8493c881678e7576421b6185088862a2b02",
+      "policy": "byte_identical"
+    }
+  ]
+}

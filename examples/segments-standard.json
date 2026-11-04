@@ -1,0 +1,38 @@
+{
+  "expected_source_ids": [
+    "SCENE_1"
+  ],
+  "expected_dialogue_ids": [
+    "D1"
+  ],
+  "expected_narrative_node_ids": [
+    "N1"
+  ],
+  "segments": [
+    {
+      "id": 1,
+      "duration": 14,
+      "segment_mode": "standard",
+      "dialogue_seconds": 1.5,
+      "pause_reaction_seconds": 2,
+      "action_seconds": 10.5,
+      "overlap_seconds": 0,
+      "shots": 5,
+      "source_id": "SCENE_1",
+      "dialogue_ids": [
+        "D1"
+      ],
+      "narrative_node_ids": [
+        "N1"
+      ],
+      "hook_seconds": 1,
+      "impact_shots": 1,
+      "contrast_axes": [
+        "响/静",
+        "手动/手停"
+      ],
+      "max_visual_stasis_seconds": 3,
+      "end_hook": "指尖停在按钮上方"
+    }
+  ]
+}

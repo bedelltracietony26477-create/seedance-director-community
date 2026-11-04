@@ -1,33 +1,17 @@
-from __future__ import annotations
-
+from pathlib import Path
 import subprocess
 import sys
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-
-
-def run(*args: str) -> None:
-    proc = subprocess.run(
-        [sys.executable, *args],
-        cwd=ROOT,
-        text=True,
-        capture_output=True,
-    )
-    if proc.returncode != 0:
-        raise SystemExit(
-            f"command failed: {' '.join(args)}\nstdout:\n{proc.stdout}\nstderr:\n{proc.stderr}"
-        )
-
-
-def main() -> None:
-    run("scripts/dialogue_timing.py", "--text", "我不会再退了。", "--mode", "restrained", "--format", "json")
-    run("scripts/segment_timing_audit.py", "examples/segments-seedance2.0.json", "--format", "json")
-    run("scripts/segment_timing_audit.py", "examples/segments-seedance2.5.json", "--format", "json")
-    run("scripts/prompt_audit.py", "examples/quick-prompt.txt", "--contract", "quick", "--format", "json")
-    run("scripts/continuity_audit.py", "examples/continuity.json", "--format", "json")
-    print("smoke tests passed")
-
-
-if __name__ == "__main__":
-    main()
+ROOT=Path(__file__).resolve().parents[1]
+def run(*args):
+    result=subprocess.run([sys.executable,*args],cwd=ROOT,text=True,capture_output=True)
+    if result.returncode:
+        raise SystemExit(result.stdout+result.stderr)
+def main():
+    run('scripts/dialogue_timing.py','--text','我不会再退了。','--mode','restrained','--segment-mode','standard','--format','json')
+    for file in ('segments-standard.json','segments-extended.json'):
+        run('scripts/segment_timing_audit.py','examples/'+file,'--format','json')
+    for file,contract in (('full-prompt.txt','full'),('quick-prompt.txt','quick')):
+        run('scripts/prompt_audit.py','examples/'+file,'--contract',contract,'--dialogue-json','examples/dialogue.json','--format','json')
+    run('scripts/continuity_audit.py','examples/continuity.json','--format','json')
+    print('Pro V1.6 smoke checks passed')
+if __name__=='__main__':main()

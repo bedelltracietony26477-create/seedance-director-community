@@ -27,7 +27,8 @@ jobs:
           version="$(cat VERSION)"
           case "$version" in
             1.6.0) flags="--latest" ;;
+            1.6.1) flags="--latest" ;;
             2.0.0-beta.1) flags="--prerelease --latest=false" ;;
             *) echo "Unapproved release version"; exit 1 ;;
           esac
-          gh release create "v$version" dist/*.zip dist/SHA256SUMS-*.txt --target "$GITHUB_SHA" --title "创梦 导演skills v$version" --notes-file RELEASE_NOTES.md $flags
+          gh release create "v$version" dist/*.zip dist/SHA256SUMS-*.txt --target "$GITHUB_SHA" --title "创梦 导演skills Pro v$version" --notes-file RELEASE_NOTES.md $flags

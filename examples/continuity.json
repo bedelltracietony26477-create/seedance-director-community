@@ -2,12 +2,86 @@
   "segments": [
     {
       "id": 1,
-      "exit": {
+      "entry": {
         "characters": {
-          "A": {"position": "画面左", "posture": "站立", "body_direction": "朝右", "right_hand": "持手机"}
+          "A": {
+            "position": "桌左椅",
+            "depth": "中景",
+            "posture": "坐",
+            "body_direction": "桌右",
+            "face_direction": "桌右",
+            "eyeline": "桌对面",
+            "left_hand": "桌沿",
+            "right_hand": "手机胸前",
+            "emotion": "克制"
+          }
         },
         "props": {
-          "phone": {"holder": "A", "hand": "right", "location": "胸前", "functional_state": "screen_on"}
+          "PHONE_A": {
+            "holder": "A",
+            "hand": "right",
+            "contact": "掌心",
+            "relation_mode": "handheld",
+            "position_zone": "chest_center",
+            "location": "胸前",
+            "orientation": "屏幕朝甲",
+            "functional_state": "未挂断",
+            "continuity_active": true
+          }
+        },
+        "voices": {
+          "A": {
+            "voice_identity": "VOICE_A",
+            "voice_mode": "dialogue",
+            "lip_sync": true,
+            "spatial_filter": "room"
+          }
+        },
+        "character_knowledge": {
+          "A": [
+            "收到异常消息"
+          ]
+        }
+      },
+      "exit": {
+        "characters": {
+          "A": {
+            "position": "桌左椅",
+            "depth": "中景",
+            "posture": "坐",
+            "body_direction": "桌右",
+            "face_direction": "桌右",
+            "eyeline": "桌对面",
+            "left_hand": "桌沿",
+            "right_hand": "手机胸前",
+            "emotion": "克制"
+          }
+        },
+        "props": {
+          "PHONE_A": {
+            "holder": "A",
+            "hand": "right",
+            "contact": "掌心",
+            "relation_mode": "handheld",
+            "position_zone": "chest_center",
+            "location": "胸前",
+            "orientation": "屏幕朝甲",
+            "functional_state": "未挂断",
+            "continuity_active": true
+          }
+        },
+        "voices": {
+          "A": {
+            "voice_identity": "VOICE_A",
+            "voice_mode": "dialogue",
+            "lip_sync": true,
+            "spatial_filter": "room"
+          }
+        },
+        "character_knowledge": {
+          "A": [
+            "收到异常消息"
+          ]
         }
       }
     },
@@ -15,10 +89,84 @@
       "id": 2,
       "entry": {
         "characters": {
-          "A": {"position": "画面左", "posture": "站立", "body_direction": "朝右", "right_hand": "持手机"}
+          "A": {
+            "position": "桌左椅",
+            "depth": "中景",
+            "posture": "坐",
+            "body_direction": "桌右",
+            "face_direction": "桌右",
+            "eyeline": "桌对面",
+            "left_hand": "桌沿",
+            "right_hand": "手机胸前",
+            "emotion": "克制"
+          }
         },
         "props": {
-          "phone": {"holder": "A", "hand": "right", "location": "胸前", "functional_state": "screen_on"}
+          "PHONE_A": {
+            "holder": "A",
+            "hand": "right",
+            "contact": "掌心",
+            "relation_mode": "handheld",
+            "position_zone": "chest_center",
+            "location": "胸前",
+            "orientation": "屏幕朝甲",
+            "functional_state": "未挂断",
+            "continuity_active": true
+          }
+        },
+        "voices": {
+          "A": {
+            "voice_identity": "VOICE_A",
+            "voice_mode": "dialogue",
+            "lip_sync": true,
+            "spatial_filter": "room"
+          }
+        },
+        "character_knowledge": {
+          "A": [
+            "收到异常消息"
+          ]
+        }
+      },
+      "exit": {
+        "characters": {
+          "A": {
+            "position": "桌左椅",
+            "depth": "中景",
+            "posture": "坐",
+            "body_direction": "桌右",
+            "face_direction": "桌右",
+            "eyeline": "桌对面",
+            "left_hand": "桌沿",
+            "right_hand": "手机胸前",
+            "emotion": "克制"
+          }
+        },
+        "props": {
+          "PHONE_A": {
+            "holder": "A",
+            "hand": "right",
+            "contact": "掌心",
+            "relation_mode": "handheld",
+            "position_zone": "chest_center",
+            "location": "胸前",
+            "orientation": "屏幕朝甲",
+            "functional_state": "未挂断",
+            "continuity_active": true
+          }
+        },
+        "voices": {
+          "A": {
+            "voice_identity": "VOICE_A",
+            "voice_mode": "dialogue",
+            "lip_sync": true,
+            "spatial_filter": "room"
+          }
+        },
+        "character_knowledge": {
+          "A": [
+            "收到异常消息"
+          ]
         }
       }
     }
