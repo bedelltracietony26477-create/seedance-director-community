@@ -43,7 +43,7 @@ The project consists of **skill instructions, directing references, examples and
 | Props change hands or seated characters start kneeling | Rebuild entry/exit states; the v2 preview adds a structured ledger |
 | A long prompt leaves the actual frame unclear | State the subject, visible cast, foreground/background, action, movement and landing |
 
-These are workflow and review objectives. Actual results still depend on the model, references, instruction execution and editing.
+Adapt shots and segments to the script, supplied references and target platform.
 
 ## Choose a release
 
@@ -58,10 +58,9 @@ These are workflow and review objectives. Actual results still depend on the mod
 | Director's script | Source coverage, action/performance planning | Explicit action-supplement/source-fact boundaries | SOURCE → DIRECTOR_SCRIPT → STATE → EVENT |
 | State ledger/event replay | New ledger auditor not included | New ledger auditor not included | `state_ledger_audit.py`, with explicit emotion/knowledge |
 | Audit tools | Four historical standard-library tools | Four tools with newer dialogue/timing/reference checks | Adds a fifth ledger auditor |
-| Verification | Historical tools/examples; newer test counts do not apply | 11 regression tests + smoke checks | 23 regression tests + smoke checks |
 | Intended use | Reproduce older work or retain the old workflow | Default for everyday use | State-workflow experimentation/feedback |
 
-**Start with v1.6.0. Choose the preview to try structured state tracking and the repair workflow.** Neither release has a generated-video comparison benchmark; regression tests cover text and structure.
+**Start with v1.6.0. Choose the preview to try structured state tracking and the repair workflow.**
 
 Skill versions are independent of model versions: **Chuangmeng v2.0 is not Seedance 2.0**. Community version numbers also do not map one-to-one to private Pro capabilities.
 
@@ -143,7 +142,7 @@ When explicitly requested, the compact format uses `[STYLELOCK]`, `[REFERENCE]`,
 
 ## Example of clearer action direction
 
-This illustrates action wording only; it is not a complete prompt or a generated-video comparison.
+These examples show how to make physical action visible and connected.
 
 | Brief source action | Visible execution |
 |---|---|
@@ -200,7 +199,7 @@ References and existing states: [provide]
 
 ## Duration profiles
 
-These inherited profiles are **repository workflow settings, not current vendor capability guarantees**:
+The workflow provides these duration profiles. Use the target platform's current limit when planning segments:
 
 | Profile | Segment range | Behavior |
 |---|---|---|
@@ -210,11 +209,11 @@ These inherited profiles are **repository workflow settings, not current vendor 
 
 Actual platform limits take precedence. Where longer segments are confirmed, 20–25 seconds may be preferred, never exceeding actual capability or 30 seconds.
 
-Shot length differs from segment length: a 24-second segment can contain several 2–4 second shots. An explicitly requested long take can override the default shot limit. Planning timecodes at 0.1-second resolution does not imply frame-exact model execution.
+Shot length differs from segment length: a 24-second segment can contain several 2–4 second shots. An explicitly requested long take can override the default shot limit. Timecodes at 0.1-second resolution organize action, speech and editing points.
 
 ## v2 preview: lightweight state ledger
 
-The v2 workflow separates source facts, the director's action script, scene states and shot events. It uses the ledger to rebuild independent prompts; the audit script validates structure and does not automatically compile JSON into natural-language prompts.
+The v2 workflow separates source facts, the director's action script, scene states and shot events. It uses the ledger to rebuild independent prompts; the audit script checks ledger fields and handoffs to support that directing workflow.
 
 | Category | Recorded state |
 |---|---|
@@ -231,11 +230,11 @@ previous exit = next entry
 
 The next segment's opening action belongs in its first shot event; it cannot excuse an already mismatched entry. Keep off-screen characters and props in the scene ledger.
 
-**The current beta supports one continuous scene and a fixed character/prop roster.** A new scene, entity or explicit time jump requires a separate ledger. The tool cannot determine natural-language physical plausibility, infer whether knowledge is justified, or prove agreement between ledger, prompt and footage.
+**The current beta supports one continuous scene and a fixed character/prop roster.** A new scene, entity or explicit time jump requires a separate ledger.
 
 [State and repair guide](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/preview/v2.0/references/community-state-workflow.md) · [Runnable ledger](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/preview/v2.0/examples/state-ledger.json)
 
-## Audit tools and verification
+## Audit tools and usage examples
 
 All audit tools use the **Python standard library**. Running Python is optional for using the skill to write prompts; the scripts provide additional checks on text and explicit state.
 
@@ -264,24 +263,11 @@ python3 scripts/state_ledger_audit.py examples/state-ledger.json --format json
 
 `prompt_audit.py` accepts one executable segment at a time. Match the expected dialogue list to its speech scope. One source event may span consecutive shot substrings, with no event reordering. Use `--reference-policy shot` for explicitly requested shot-level tags; use `--max-shot-seconds` for an explicitly requested longer take.
 
-Run the full regression suite from a **source checkout**; Skill installation ZIPs do not include `tests/`:
-
-```bash
-python3 tests/smoke_test.py
-python3 -m unittest discover -s tests -p 'test_*.py'
-```
-
-Stable tests cover genuine dialogue repetition, speech fragments, missing/reordered words, dialogue outside the timeline, timecode gaps, start/end closure and reference policies. Preview tests additionally cover boundary drift, missing characters, invalid events, unrecorded changes and malformed ledger inputs.
-
-Passing tests means the corresponding text/structure checks passed. Dialogue-only estimates are not final running time. The scripts do not evaluate footage, physical realism, spatial semantics or acting quality.
-
-## Use cases and boundaries
+## Use cases and community scope
 
 Use for complete episodes, individual scenes, multi-character dialogue, emotional conflict, continuous action, local pickups and narrative prompts requiring cross-segment handoffs. Live-action and animation media can be specified; style and assets should follow the script, references and user requirements.
 
 Community remains readable, editable and reusable. The v2 lightweight ledger is an independent community implementation. Private Pro performance signatures, full semantic prop machinery, quantitative attention budgets and advanced voice-identity systems are excluded.
-
-Neither release currently provides a generated-video comparison experiment or quantified success-rate, cost-saving or image-quality claims. Review source, prompts, ledgers and footage together.
 
 ## Examples, documentation and feedback
 
