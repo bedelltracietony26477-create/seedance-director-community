@@ -8,7 +8,19 @@ Use it for short dramas, dialogue scenes, emotional confrontations, connected ac
 
 **v1.6.1 Pro · By LERler-Q**
 
-[Download Pro](../../releases/tag/v1.6.1) · [中文](README.md) · [Example](examples/full-prompt.txt) · [Skill entry](SKILL.md)
+[Install with Skills CLI](#install-with-skills-cli) · [Download ZIP](../../releases/tag/v1.6.1) · [中文](README.md) · [Example](examples/full-prompt.txt)
+
+## Install with Skills CLI
+
+Run this from your project and choose your target agent, such as Codex or Claude Code:
+
+```bash
+npx skills add bedelltracietony26477-create/seedance-director-community --skill chuangmeng-director-pro
+```
+
+Requires Node.js 22.20 or later. Installation is project-local by default; add `-g` to make the skill available across your projects.
+
+[Installation guide](docs/INSTALL.md#english) · [Download ZIP](../../releases/tag/v1.6.1)
 
 ## Choose a version
 
@@ -72,11 +84,13 @@ Compact tasks use `[STYLELOCK]`, `[REFERENCE]`, `[SHOT]`, `[BEATS]`.
 
 ## Quick start
 
-1. Download the [v1.6.1 Pro package](../../releases/tag/v1.6.1).
-2. Import its `chuangmeng-director-pro/` folder using your platform's Agent Skills installation instructions.
-3. Supply a complete script, references, target platform and duration requirements. Invoke `$chuangmeng-director-pro`.
+1. Install with the Skills CLI command above and choose your target agent.
+2. Supply a complete script, references, target platform and duration requirements.
+3. Invoke `$chuangmeng-director-pro` to start planning segments and shots.
 
-Entry: `SKILL.md`. Installed identifier: **`chuangmeng-director-pro`**.
+Alternatively, download the [ZIP package](../../releases/tag/v1.6.1) and import its `chuangmeng-director-pro/` folder using your platform's instructions. Entry: `SKILL.md`.
+
+Installed identifier: **`chuangmeng-director-pro`**. See the [installation guide](docs/INSTALL.md#english) for agent-specific commands, global installation and updates.
 
 ```text
 Use $chuangmeng-director-pro.

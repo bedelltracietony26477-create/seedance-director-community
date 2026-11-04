@@ -8,7 +8,19 @@
 
 **v1.6.1 Pro · 作者 LERler-Q**
 
-[下载 Pro](../../releases/tag/v1.6.1) · [快速开始](#快速开始) · [使用示例](examples/full-prompt.txt) · [English](README_EN.md)
+[一行安装](#一行命令安装) · [下载 ZIP](../../releases/tag/v1.6.1) · [快速开始](#快速开始) · [使用示例](examples/full-prompt.txt) · [English](README_EN.md)
+
+## 一行命令安装
+
+在项目目录执行，按提示选择 Codex、Claude Code 等目标工具：
+
+```bash
+npx skills add bedelltracietony26477-create/seedance-director-community --skill chuangmeng-director-pro
+```
+
+需要 Node.js 22.20 或更新版本。默认安装到当前项目；添加 `-g` 可供同一用户的多个项目使用。
+
+[完整安装指南](docs/INSTALL.md) · [下载 ZIP](../../releases/tag/v1.6.1)
 
 ## 选择版本
 
@@ -93,11 +105,13 @@ Pro 适合需要系统安排人物表演、道具、声音与镜头关系的制�
 
 ## 快速开始
 
-1. 下载 [v1.6.1 Pro 安装包](../../releases/tag/v1.6.1)。
-2. 解压后，按所用平台的 Agent Skills 安装方式导入 `chuangmeng-director-pro/`。
-3. 提供完整剧本、已有参考、目标平台与时长要求，调用 `$chuangmeng-director-pro`。
+1. 使用上方 Skills CLI 命令安装，在提示中选择要使用的工具。
+2. 提供完整剧本、已有参考、目标平台与时长要求。
+3. 在助手中调用 `$chuangmeng-director-pro`，开始安排分段与镜头。
 
-入口文件：`SKILL.md`。Pro 的安装标识为 **`chuangmeng-director-pro`**。
+也可下载 [ZIP 安装包](../../releases/tag/v1.6.1)，解压后按平台安装方式导入 `chuangmeng-director-pro/`。入口为 `SKILL.md`。
+
+安装标识：**`chuangmeng-director-pro`**。指定 Codex、Claude Code、全局安装及更新命令见[安装指南](docs/INSTALL.md)。
 
 ```text
 使用 $chuangmeng-director-pro 处理以下完整剧本。
