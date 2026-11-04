@@ -1,4 +1,4 @@
 interface:
-  display_name: "创梦 导演skills v1.6.0"
-  short_description: "将完整剧本转为逐镜可见、动作衔接、对白与空间连续的电影级AI视频分段提示词"
-  default_prompt: "使用 $chuangmeng-director 完整读取剧本，保留原台词，梳理情绪、动作与空间，输出独立且连续的分段提示词。"
+  display_name: "创梦 导演skills v2.0.0-beta.1"
+  short_description: "通过导演版剧本与轻量状态账本，组织可独立执行且跨段连续的AI视频提示词"
+  default_prompt: "使用 $chuangmeng-director 读取剧本，保留原文，建立导演版动作与轻量状态账本，生成独立且连续的分段提示词。"

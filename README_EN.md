@@ -8,7 +8,7 @@ An open community workflow for turning complete scripts into self-contained cine
 | v2.0.0-beta.1 | Preview: director's script, lightweight state ledger and local repair | [Source](../../tree/preview/v2.0) · [Release](../../releases/tag/v2.0.0-beta.1) |
 | v1.5.5 | Historical community release | [Release](../../releases/tag/v1.5.5) |
 
-The default branch remains v1.6.0. Skill release numbers are separate from video-model versions. Install one version at a time; both use the `chuangmeng-director` skill identifier. The previous name is a natural-language compatibility alias.
+This file is on the v2.0.0-beta.1 preview branch. The default branch remains v1.6.0. Skill release numbers are separate from video-model versions. Install one version at a time; both use the `chuangmeng-director` skill identifier. The previous name is a natural-language compatibility alias.
 
 ## Start
 
@@ -19,6 +19,16 @@ Ask `$chuangmeng-director` to read your complete script, preserve dialogue and p
 Default shots last 2–4 seconds with a 4-second maximum. Whole-segment durations are integers. Reference tags are centralized in the reference table by default; legacy shot-level tags are available with `--reference-policy shot` in the auditor. A continuous speech event may span adjacent shots without restarting or repeating words.
 
 The inherited duration profiles are workflow settings, not current vendor capability guarantees. Actual platform limits take precedence. Short pickups and user-requested long takes are supported explicitly.
+
+## v2 preview
+
+The director workflow separates source facts, a director's script, structured states, shot events and independent prompts. The lightweight ledger tracks fixed scene anchors, physical and prop states, knowledge and emotion. Entry must match the previous exit; event replay must produce the declared exit.
+
+```bash
+python3 scripts/state_ledger_audit.py examples/state-ledger.json --format json
+```
+
+The beta ledger supports one continuous scene with a fixed roster. Start a separate ledger for a new scene, new entities or a time jump. The script does not compile prompts, compare prompt semantics or inspect footage.
 
 ## Verify
 

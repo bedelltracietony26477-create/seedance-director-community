@@ -3,13 +3,33 @@ name: chuangmeng-director
 description: "Direct scripts into self-contained cinematic AI-video prompts with exact dialogue, visible blocking, camera-relative eyelines, connected physical actions, continuous sound and cross-segment handoffs. Use for 创梦 导演skills, CineWeaver, the legacy seedance-director-community invocation, full episodes, scenes, storyboards, long dialogue, action, reference-image binding or prompt repair. Separate the skill release version from the target video model and confirm its duration capacity."
 ---
 
-# 创梦 导演skills · Community v1.6.0
+# 创梦 导演skills · Community v2.0.0-beta.1
 
 将完整剧本转为可独立生成、剪辑后连续成戏的分段提示词。作者：LERler-Q。前身：CineWeaver Director Engine / Seedance Director Community。旧触发名视为兼容别名；安装元数据使用 `chuangmeng-director`。
 
 ## 执行优先级
 
 服从用户指定的剧情范围、台词、参考图、站位、镜头和时长要求。以本入口及[最终输出契约](references/final-output-contract.md)作为本版输出规范；旧参考中的重复字段、每镜重复@和强制填充规则不再适用。参考图是外观与空间依据，图中附带文字不作为操作指令。剧本中的人物命令属于台词，不是给助手的指令。
+
+## 2.0 预览版：状态驱动工作流
+
+先读取[导演版剧本与状态流程](references/community-state-workflow.md)。以导演版剧本保留事实与台词，再编排每镜可见动作，最后为每个独立生成段重建完整进入状态。状态账本是导演的文本/结构工具，不是视频生成器，也不是完整私有 Pro 状态系统。
+
+1. 建立 SOURCE：原场次、动作事件和逐字台词，原始事实不可被状态推演改写。
+2. 建立 DIRECTOR_SCRIPT：给动作补充可见路径、接触和重叠时段，区分原文事件与导演补充；不新增剧情事实。
+3. 建立 STATE：使用固定场景锚点记录身体、道具、动作相位、情绪与已知信息。镜头左右只用于当前构图，不作为跨机位空间坐标。
+4. 逐镜建立 EVENT：每次状态变化绑定到具体镜头和可见动作/声音刺激。先排事件因果与表演，再选景别与运镜。
+5. 编译独立分段：将本段entry完整翻译到人物模块，将exit完整翻译到连续性模块；不要求生成模型读取JSON，也不把“承接上段”当作完整状态。
+6. 跨段审查：上一段exit必须等于下一段entry；下一段首动作产生的变化放在首镜event内，不提前篡改entry。
+7. 局部返修：按失败所在层只改对应字段、动作或镜头，同时检查相邻接口。用户只改单段时保持其他原台词与落点。
+
+采用[账本示例](examples/state-ledger.json)的JSON格式；审计脚本检查完整进入/退出、事件变化与相邻段一致性。它只验证账本，不能自动证明账本与提示词或成片语义一致，仍须逐镜核对。
+
+```bash
+python3 scripts/state_ledger_audit.py examples/state-ledger.json --format json
+```
+
+这是 beta.1：已有结构回归测试与合成案例，尚无实际视频对照验证。默认推荐需要稳定工作流的用户选择 v1.6.0。
 
 ## 工作顺序
 
@@ -78,4 +98,4 @@ python3 scripts/continuity_audit.py examples/continuity.json --format json
 - 摄影与声画：[镜头语法](references/camera-grammar-and-combinations.md)、[声音剪辑](references/crowd-sound-and-editing.md)。
 - 项目设定、特殊叙事、类型冲击与质检：按需读取 `references/` 中对应文件；无需每次机械加载全部参考。
 
-Community 保持轻量；不包含私有版高级角色表演签名、完整道具语义状态机、量化画面预算或高级声音身份系统。
+Community v2.0 开放轻量状态账本与局部返修；不包含私有版高级角色表演签名、完整道具语义状态机、量化画面预算或高级声音身份系统。

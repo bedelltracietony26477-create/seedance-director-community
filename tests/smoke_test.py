@@ -26,6 +26,7 @@ def main() -> None:
     run("scripts/segment_timing_audit.py", "examples/segments-seedance2.5.json", "--format", "json")
     run("scripts/prompt_audit.py", "examples/quick-prompt.txt", "--contract", "quick", "--format", "json")
     run("scripts/continuity_audit.py", "examples/continuity.json", "--format", "json")
+    run("scripts/state_ledger_audit.py", "examples/state-ledger.json", "--format", "json")
     print("smoke tests passed")
 
 

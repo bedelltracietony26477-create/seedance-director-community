@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "model_max_seconds": 15,
+  "segments": [
+    {
+      "id": 1,
+      "duration": 6,
+      "entry": {
+        "scene": "OFFICE",
+        "characters": {
+          "A": {
+            "position": "桌左椅",
+            "posture": "坐",
+            "body_direction": "桌对面",
+            "eyeline": "桌面",
+            "left_hand": "桌沿",
+            "right_hand": "握笔",
+            "action_phase": "握笔未落桌",
+            "emotion": "克制",
+            "knowledge": [
+              "名单已阅"
+            ]
+          },
+          "B": {
+            "position": "桌右椅",
+            "posture": "坐",
+            "body_direction": "桌左椅",
+            "eyeline": "A",
+            "left_hand": "膝上",
+            "right_hand": "膝上",
+            "action_phase": "静止聆听",
+            "emotion": "等待",
+            "knowledge": []
+          }
+        },
+        "props": {
+          "PEN": {
+            "holder": "A",
+            "hand": "right",
+            "location": "桌面上方",
+            "orientation": "笔尖朝桌",
+            "functional_state": "完整"
+          }
+        }
+      },
+      "shots": [
+        {
+          "id": "S1",
+          "start": 0,
+          "end": 3,
+          "event": "甲右手把笔放到桌面，手指继续压住笔身",
+          "changes": [
+            {
+              "path": "characters.A.right_hand",
+              "before": "握笔",
+              "after": "手指压笔"
+            },
+            {
+              "path": "characters.A.action_phase",
+              "before": "握笔未落桌",
+              "after": "笔已落桌手指压住"
+            },
+            {
+              "path": "props.PEN.holder",
+              "before": "A",
+              "after": null
+            },
+            {
+              "path": "props.PEN.hand",
+              "before": "right",
+              "after": null
+            },
+            {
+              "path": "props.PEN.location",
+              "before": "桌面上方",
+              "after": "桌面"
+            },
+            {
+              "path": "props.PEN.orientation",
+              "before": "笔尖朝桌",
+              "after": "平放"
+            }
+          ]
+        },
+        {
+          "id": "S2",
+          "start": 3,
+          "end": 6,
+          "event": "甲保持压笔状态，缓缓抬眼看向桌对面",
+          "changes": [
+            {
+              "path": "characters.A.eyeline",
+              "before": "桌面",
+              "after": "B"
+            },
+            {
+              "path": "characters.A.emotion",
+              "before": "克制",
+              "after": "无声施压"
+            }
+          ]
+        }
+      ],
+      "exit": {
+        "scene": "OFFICE",
+        "characters": {
+          "A": {
+            "position": "桌左椅",
+            "posture": "坐",
+            "body_direction": "桌对面",
+            "eyeline": "B",
+            "left_hand": "桌沿",
+            "right_hand": "手指压笔",
+            "action_phase": "笔已落桌手指压住",
+            "emotion": "无声施压",
+            "knowledge": [
+              "名单已阅"
+            ]
+          },
+          "B": {
+            "position": "桌右椅",
+            "posture": "坐",
+            "body_direction": "桌左椅",
+            "eyeline": "A",
+            "left_hand": "膝上",
+            "right_hand": "膝上",
+            "action_phase": "静止聆听",
+            "emotion": "等待",
+            "knowledge": []
+          }
+        },
+        "props": {
+          "PEN": {
+            "holder": null,
+            "hand": null,
+            "location": "桌面",
+            "orientation": "平放",
+            "functional_state": "完整"
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "duration": 4,
+      "entry": {
+        "scene": "OFFICE",
+        "characters": {
+          "A": {
+            "position": "桌左椅",
+            "posture": "坐",
+            "body_direction": "桌对面",
+            "eyeline": "B",
+            "left_hand": "桌沿",
+            "right_hand": "手指压笔",
+            "action_phase": "笔已落桌手指压住",
+            "emotion": "无声施压",
+            "knowledge": [
+              "名单已阅"
+            ]
+          },
+          "B": {
+            "position": "桌右椅",
+            "posture": "坐",
+            "body_direction": "桌左椅",
+            "eyeline": "A",
+            "left_hand": "膝上",
+            "right_hand": "膝上",
+            "action_phase": "静止聆听",
+            "emotion": "等待",
+            "knowledge": []
+          }
+        },
+        "props": {
+          "PEN": {
+            "holder": null,
+            "hand": null,
+            "location": "桌面",
+            "orientation": "平放",
+            "functional_state": "完整"
+          }
+        }
+      },
+      "shots": [
+        {
+          "id": "S1",
+          "start": 0,
+          "end": 4,
+          "event": "乙看见甲抬眼，维持倾听；甲保持坐姿和压笔状态",
+          "changes": []
+        }
+      ],
+      "exit": {
+        "scene": "OFFICE",
+        "characters": {
+          "A": {
+            "position": "桌左椅",
+            "posture": "坐",
+            "body_direction": "桌对面",
+            "eyeline": "B",
+            "left_hand": "桌沿",
+            "right_hand": "手指压笔",
+            "action_phase": "笔已落桌手指压住",
+            "emotion": "无声施压",
+            "knowledge": [
+              "名单已阅"
+            ]
+          },
+          "B": {
+            "position": "桌右椅",
+            "posture": "坐",
+            "body_direction": "桌左椅",
+            "eyeline": "A",
+            "left_hand": "膝上",
+            "right_hand": "膝上",
+            "action_phase": "静止聆听",
+            "emotion": "等待",
+            "knowledge": []
+          }
+        },
+        "props": {
+          "PEN": {
+            "holder": null,
+            "hand": null,
+            "location": "桌面",
+            "orientation": "平放",
+            "functional_state": "完整"
+          }
+        }
+      }
+    }
+  ]
+}
