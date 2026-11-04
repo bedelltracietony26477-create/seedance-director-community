@@ -1,0 +1,33 @@
+name: Publish versioned skill
+on:
+  push:
+    branches: [main, preview/v2.0]
+    paths: [VERSION]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate source before publication
+        run: |
+          python3 -m py_compile scripts/*.py tests/*.py
+          python3 tests/smoke_test.py
+          python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Package and publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 scripts/package_release.py
+          version="$(cat VERSION)"
+          case "$version" in
+            1.6.0) flags="--latest" ;;
+            2.0.0-beta.1) flags="--prerelease --latest=false" ;;
+            *) echo "Unapproved release version"; exit 1 ;;
+          esac
+          gh release create "v$version" dist/*.zip dist/SHA256SUMS-*.txt --target "$GITHUB_SHA" --title "创梦 导演skills v$version" --notes-file RELEASE_NOTES.md $flags

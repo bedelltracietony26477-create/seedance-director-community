@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit Community V1.5.5 full or quick Seedance prompts and optional dialogue."""
+"""Audit 创梦 Community v1.6+ full or quick Seedance prompts and optional dialogue."""
 
 from __future__ import annotations
 
@@ -44,9 +44,9 @@ def section(text: str, heading: str, modules: list[str]) -> str:
     return text[start:end].strip()
 
 
-def load_dialogues(path: str | None) -> list[str]:
+def load_dialogues(path: str | None) -> list[str] | None:
     if not path:
-        return []
+        return None
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     if isinstance(data, list):
         return [str(x["text"] if isinstance(x, dict) else x) for x in data]
@@ -57,7 +57,7 @@ def load_dialogues(path: str | None) -> list[str]:
 
 
 def extract_dialogues(text: str) -> list[str]:
-    return [item.strip() for item in re.findall(r"\{([^{}]+)\}", text, flags=re.S)]
+    return [item for item in re.findall(r"\{([^{}]+)\}", text, flags=re.S)]
 
 
 def shot_blocks(shot_text: str) -> list[str]:
@@ -94,7 +94,7 @@ def sequential_reference_errors(mapping: str) -> list[str]:
     return errors
 
 
-def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> dict:
+def audit(text: str, expected_dialogues: list[str] | None, contract: str = "auto", reference_policy: str = "mapping", max_shot_seconds: float = 4.0) -> dict:
     errors, warnings = [], []
     if contract == "auto":
         contract = "full" if any(item in text for item in FULL_MODULES[2:]) else "quick"
@@ -168,7 +168,7 @@ def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> d
                 warnings.append(f"[本段任务]可能缺少：{token}")
         for token in ("核心冲击", "对比轴", "视觉变化"):
             if token not in task:
-                errors.append(f"[本段任务]缺少V1.5.5字段：{token}")
+                warnings.append(f"[本段任务]可按戏剧需要补充：{token}")
         if "1.5秒" not in task and "前1.5秒" not in task:
             warnings.append("[本段任务]未明确前1.5秒钩子")
 
@@ -192,9 +192,13 @@ def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> d
     unused = sorted(declared_refs - shot_refs)
     if undeclared:
         errors.append("镜头正文调用了未在参考表声明的素材：" + "、".join(undeclared))
-    if unused:
+    if reference_policy == "shot" and unused:
         warnings.append("参考表存在未在镜头时间轴调用的素材：" + "、".join(unused))
 
+    if reference_policy == "mapping" and "@" in text.replace(mapping, "", 1):
+        errors.append("默认参考策略要求@仅出现在参考表")
+    if any(term in text for term in ("同上", "沿用前文", "场景同前")):
+        errors.append("分段依赖前文，不能独立执行")
     shots = shot_blocks(shots_section)
     if not shots:
         errors.append("[镜头时间轴]没有可识别镜头")
@@ -204,10 +208,12 @@ def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> d
         heading = block.splitlines()[0]
         timecode = shot_timecode(heading)
         if timecode is None:
-            warnings.append(f"镜头{i}缺少起止时间码")
+            errors.append(f"镜头{i}缺少起止时间码")
         else:
             start, end = timecode
             timecodes.append((i, start, end))
+            if end - start > max_shot_seconds + 1e-7:
+                errors.append(f"镜头{i}超过{max_shot_seconds:g}秒上限")
             if end <= start:
                 errors.append(f"镜头{i}结束时间必须晚于开始时间")
             if not tenth_aligned(start) or not tenth_aligned(end):
@@ -226,7 +232,7 @@ def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> d
             used = {term.lower() for term in COMPLEX if term.lower() in block.lower()}
             if len(used) > 2:
                 warnings.append(f"镜头{i}可能堆叠超过一个主要运动和一个增强语法")
-        if any(term in block for term in ("抓", "递", "接", "撞", "跳", "落地", "挡", "按灭")):
+        if any(term in block for term in ("抓住", "递给", "接住", "撞击", "跳起", "落地", "阻挡", "按灭")):
             if not any(term in block for term in ("接触点", "触地", "掌心", "指尖", "落点")):
                 warnings.append(f"镜头{i}可能缺少动作接触点/落点")
         if "{" in block and not any(term in block for term in ("气口", "停顿", "吸气", "吞咽")):
@@ -243,13 +249,19 @@ def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> d
             warnings.append(f"镜头{i}包含毫米级表演参数，检查是否为伪精确")
 
     if impact_count != 1:
-        errors.append(f"核心冲击镜头应为1个，当前识别到{impact_count}个")
+        warnings.append(f"核心冲击镜头应为1个，当前识别到{impact_count}个")
     for (prev_i, _, prev_end), (curr_i, curr_start, _) in zip(timecodes, timecodes[1:]):
         if abs(prev_end - curr_start) > 0.05:
             errors.append(f"镜头{prev_i}与镜头{curr_i}时间码不连续：{prev_end:g}→{curr_start:g}")
     if timecodes and abs(timecodes[0][1]) > 0.05:
-        warnings.append(f"首镜从{timecodes[0][1]:g}秒开始，通常应从0.0秒开始")
+        errors.append(f"首镜必须从0.0秒开始，当前{timecodes[0][1]:g}")
     header_duration = re.search(r"(?m)^#.*?｜\s*(\d+(?:\.\d+)?)\s*秒\s*$", text)
+    if not header_duration:
+        errors.append("缺少可识别的段落总时长标题")
+    elif not float(header_duration.group(1)).is_integer():
+        errors.append("分段总时长必须为整数秒")
+    if header_duration and float(header_duration.group(1)) <= 0:
+        errors.append("分段总时长必须大于0")
     if header_duration and timecodes:
         expected_duration = float(header_duration.group(1))
         if abs(timecodes[-1][2] - expected_duration) > 0.05:
@@ -258,13 +270,22 @@ def audit(text: str, expected_dialogues: list[str], contract: str = "auto") -> d
             )
 
     actual = extract_dialogues(shots_section)
-    if expected_dialogues:
-        if actual != expected_dialogues:
+    if expected_dialogues is not None:
+        # Match ordered source events, allowing contiguous fragments across shots.
+        event_index, offset = 0, 0
+        mismatch = False
+        for fragment in actual:
+            if event_index >= len(expected_dialogues) or not expected_dialogues[event_index].startswith(fragment, offset):
+                mismatch = True
+                break
+            offset += len(fragment)
+            if offset == len(expected_dialogues[event_index]):
+                event_index += 1
+                offset = 0
+        if mismatch or event_index != len(expected_dialogues) or offset:
             errors.append("原台词逐字或顺序不一致")
-        counts = Counter(actual)
-        duplicates = [item for item, count in counts.items() if count > 1]
-        if duplicates:
-            errors.append("台词重复出现：" + "｜".join(duplicates))
+        if extract_dialogues(text) != actual:
+            errors.append("台词只能出现在镜头时间轴，其他模块发现重复或额外台词")
 
     if not any(x in sound for x in ("Room tone", "room tone", "底噪", "环境声")):
         warnings.append("声音模块可能缺少空间底噪")
@@ -309,12 +330,16 @@ def main() -> int:
     parser.add_argument("path", help="Prompt text file")
     parser.add_argument("--contract", choices=("auto", "full", "quick"), default="auto")
     parser.add_argument("--dialogue-json", help="JSON list or {dialogues:[...]} of expected lines")
+    parser.add_argument("--reference-policy", choices=("mapping", "shot"), default="mapping")
+    parser.add_argument("--max-shot-seconds", type=float, default=4.0)
     parser.add_argument("--format", choices=("text", "markdown", "json"), default="text")
     args = parser.parse_args()
     try:
         text = Path(args.path).read_text(encoding="utf-8")
         expected = load_dialogues(args.dialogue_json)
-        result = audit(text, expected, args.contract)
+        if not 0 < args.max_shot_seconds < float("inf"):
+            raise ValueError("max-shot-seconds must be finite and positive")
+        result = audit(text, expected, args.contract, args.reference_policy, args.max_shot_seconds)
     except (OSError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2

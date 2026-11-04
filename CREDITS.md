@@ -1,9 +1,11 @@
 # Credits
 
-**CineWeaver Director Engine · Community**
+**创梦 导演skills / Chuangmeng Director Skills**
 
 Created and maintained by **LERler-Q**.
 
-Thank you to every contributor, tester and AI-video creator who reports failures, proposes improvements or helps refine the workflow.
+Formerly **CineWeaver Director Engine / Seedance Director Community**.
 
-This credit file is informational and does not alter the Skill's execution behavior or licensing terms.
+Community v1.6.0 and v2.0.0-beta.1 are community-specific updates, not exports of the private Pro packages.
+
+Thanks to contributors who provide reproducible examples and audit fixes.

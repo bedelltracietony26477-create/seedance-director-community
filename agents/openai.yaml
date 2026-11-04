@@ -1,13 +1,4 @@
 interface:
-  display_name: "Seedance电影导演 Community V1.5.5"
-  short_description: "适配Seedance 2.0/2.5的短剧导演、台词编舞与连续性Skill。"
-  default_prompt: "请使用 $seedance-director-community 分析我的剧本，保留全部原台词；先根据目标模型选择时长档：Seedance 2.0按8–15秒，Seedance 2.5按16–30秒（需要时允许15秒边界段），再完成台词编舞、Reaction Ownership、表演、镜头、声音、轻量参考绑定与跨段连续性。"
-  icon_small: "./assets/icon.svg"
-  icon_large: "./assets/icon.svg"
-policy:
-  products:
-  - "chatgpt"
-  - "codex"
-  - "api"
-  - "atlas"
-  allow_implicit_invocation: true
+  display_name: "创梦 导演skills v1.6.0"
+  short_description: "将完整剧本转为逐镜可见、动作衔接、对白与空间连续的电影级AI视频分段提示词"
+  default_prompt: "使用 $chuangmeng-director 完整读取剧本，保留原台词，梳理情绪、动作与空间，输出独立且连续的分段提示词。"
