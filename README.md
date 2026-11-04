@@ -8,7 +8,7 @@
 
 原台词保留 · 逐镜可见性 · 人物表演 · 动作衔接 · 空间眼线 · 声画连续 · 分段交接
 
-**Community v1.6.0 稳定版 / v2.0.0-beta.1 预览版**
+**Community v1.5.5 历史版 / v1.6.0 稳定版 / v2.0.0-beta.1 预览版**
 
 Created & maintained by **LERler-Q**
 
@@ -47,19 +47,19 @@ Created & maintained by **LERler-Q**
 
 ## 选择哪个版本？
 
-| 能力 / 使用方式 | v1.6.0 稳定版 | v2.0.0-beta.1 预览版 |
-|---|---|---|
-| 原台词、标点和顺序保留规则 | 支持 | 继承 |
-| 逐镜可见性、镜头相对眼线、动作相位 | 支持 | 继承 |
-| 默认 2–4 秒短镜、整段整数秒 | 支持 | 继承 |
-| 参考表集中绑定、跨镜连续发声 | 支持 | 继承 |
-| 每段独立执行与进入/退出状态描述 | 支持 | 继承并进一步结构化 |
-| 导演版剧本与原文事实分层 | 动作补充与原文覆盖规则 | 增加 SOURCE → DIRECTOR_SCRIPT → STATE → EVENT 流程 |
-| 状态记录 | 基础人物与道具交接 | 增加身体、动作相位、情绪与已知信息的轻量账本 |
-| 镜头事件回放与段间严格入口比对 | 不含新增账本审计器 | `state_ledger_audit.py` |
-| 局部返修 | 对指定问题和相邻接口复核 | 增加按原文、动作、空间、状态与声音定位的返修指南 |
-| 版本定位 | 日常使用的默认选择 | 供状态流程试用、反馈与迭代 |
-| 已有验证 | 11 项回归测试 + 冒烟检查 | 23 项回归测试 + 冒烟检查 |
+| 能力 / 使用方式 | v1.5.5 历史社区版 | v1.6.0 稳定版 | v2.0.0-beta.1 预览版 |
+|---|---|---|---|
+| 安装标识 | `seedance-director-community` | `chuangmeng-director` | `chuangmeng-director` |
+| 原台词与对白编舞 | 原台词硬锁、Beat Map Lite、Reaction Ownership | 继承并完善执行与审计 | 继承1.6 |
+| 可见性、眼线与动作 | 已有空间、表演与动作过程规则 | 加强逐镜可见性、镜头相对眼线、动作相位 | 继承1.6 |
+| 镜头节奏 | 约2–3秒有效视觉变化，可有动机延长 | 默认2–4秒单镜且不超过4秒；整段整数秒 | 继承1.6 |
+| 参考绑定 | 参考表定义 + 实际镜头调用 | 默认参考表集中，逐镜调用为兼容策略 | 继承1.6 |
+| 独立分段与基础状态 | 人物、手位、道具与进入/退出交接 | 继承并明确执行约束 | 进一步结构化 |
+| 导演版剧本 | 原文覆盖、表演与动作梳理 | 明确动作补充与原文事实边界 | SOURCE → DIRECTOR_SCRIPT → STATE → EVENT 流程 |
+| 状态账本与事件回放 | 无新增账本审计器 | 无新增账本审计器 | `state_ledger_audit.py`，含情绪/知识等显式状态 |
+| 审计工具 | 4个历史标准库工具 | 4个工具及新版对白/时码/参考校验 | 增加第5个账本工具 |
+| 验证说明 | 历史工具与示例；不计入新版测试数量 | 11项回归测试 + 冒烟检查 | 23项回归测试 + 冒烟检查 |
+| 版本定位 | 旧项目复现、沿用旧工作流 | 日常使用的默认选择 | 状态流程试用、反馈与迭代 |
 
 **第一次使用，建议选 v1.6.0；需要试用结构化状态记录与局部返修流程时，再选择 v2.0.0-beta.1。** 两版都还没有实际生成视频的对照验证，回归测试覆盖的是文本与结构规则。
 
@@ -69,6 +69,14 @@ Created & maintained by **LERler-Q**
 - [v2.0.0-beta.1 发布与安装包](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v2.0.0-beta.1)
 - [v2.0 预览分支](https://github.com/bedelltracietony26477-create/seedance-director-community/tree/preview/v2.0)
 - [v1.5.5 历史版本](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+
+## v1.5.5 历史版说明
+
+v1.5.5 已有原台词硬锁、轻量对白编舞、Reaction Ownership、Failed Action、空间摄影、逐镜参考绑定和基础跨段交接。原安装标识为 `seedance-director-community`，原附件为 `Seedance_Director_Community_v1.5.5.zip`。
+
+[查看 v1.5.5 详细说明](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/main/docs/releases/v1.5.5.md) · [历史发布与下载](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+
+历史版保留原内容与使用方式；上文三版本对照列出新增规则，使用旧包时请以旧版文档和参数为准。旧名与新名不同可能导致两版同时安装，需在平台中明确选择当前使用版本。
 
 ## 从剧本到执行提示词
 

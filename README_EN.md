@@ -8,7 +8,7 @@
 
 Exact dialogue · Shot visibility · Performance · Physical action · Blocking and eyelines · Sound continuity · Segment handoffs
 
-**Community v1.6.0 stable / v2.0.0-beta.1 preview**
+**Community v1.5.5 historical / v1.6.0 stable / v2.0.0-beta.1 preview**
 
 Created & maintained by **LERler-Q**
 
@@ -47,25 +47,33 @@ These are workflow and review objectives. Actual results still depend on the mod
 
 ## Choose a release
 
-| Capability | v1.6.0 stable | v2.0.0-beta.1 preview |
-|---|---|---|
-| Dialogue, punctuation and source-order preservation rules | Included | Inherited |
-| Shot visibility, camera-relative eyelines and connected action | Included | Inherited |
-| Default 2–4 second shots; integer segment duration | Included | Inherited |
-| Centralized reference mapping; continuous speech across cuts | Included | Inherited |
-| Independent prompts and entry/exit descriptions | Included | Further structured |
-| Source/director-script separation | Source coverage and action supplementation | Explicit SOURCE → DIRECTOR_SCRIPT → STATE → EVENT workflow |
-| State tracking | Basic character/prop handoffs | Lightweight physical, prop, action, emotion and knowledge ledger |
-| Shot-event replay and strict boundary comparison | New ledger auditor not included | `state_ledger_audit.py` |
-| Local repair | Targeted edits and neighboring interfaces | Additional repair routing by source, action, space, state and sound |
-| Intended use | Default for everyday use | Experimentation and feedback on the state workflow |
-| Existing checks | 11 regression tests + smoke checks | 23 regression tests + smoke checks |
+| Capability | v1.5.5 historical | v1.6.0 stable | v2.0.0-beta.1 preview |
+|---|---|---|---|
+| Installed identifier | `seedance-director-community` | `chuangmeng-director` | `chuangmeng-director` |
+| Dialogue rules | Exact dialogue, Beat Map Lite, reaction ownership | Inherited and refined execution/audits | Inherited from v1.6 |
+| Visibility, eyelines and action | Existing spatial, performance and action-process rules | Explicit per-shot visibility, camera-relative eyelines and action phases | Inherited from v1.6 |
+| Pacing | Effective visual change about every 2–3s; motivated holds allowed | Default 2–4s shots, 4s limit; integer segments | Inherited from v1.6 |
+| Reference policy | Table definitions plus shot-level calls | Centralized table by default; shot-level compatibility | Inherited from v1.6 |
+| Independent segments/basic handoffs | Character, hands, props and entry/exit | Inherited with clearer constraints | Further structured |
+| Director's script | Source coverage, action/performance planning | Explicit action-supplement/source-fact boundaries | SOURCE → DIRECTOR_SCRIPT → STATE → EVENT |
+| State ledger/event replay | New ledger auditor not included | New ledger auditor not included | `state_ledger_audit.py`, with explicit emotion/knowledge |
+| Audit tools | Four historical standard-library tools | Four tools with newer dialogue/timing/reference checks | Adds a fifth ledger auditor |
+| Verification | Historical tools/examples; newer test counts do not apply | 11 regression tests + smoke checks | 23 regression tests + smoke checks |
+| Intended use | Reproduce older work or retain the old workflow | Default for everyday use | State-workflow experimentation/feedback |
 
 **Start with v1.6.0. Choose the preview to try structured state tracking and the repair workflow.** Neither release has a generated-video comparison benchmark; regression tests cover text and structure.
 
 Skill versions are independent of model versions: **Chuangmeng v2.0 is not Seedance 2.0**. Community version numbers also do not map one-to-one to private Pro capabilities.
 
 [Stable download](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.6.0) · [Preview download](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v2.0.0-beta.1) · [Preview source](https://github.com/bedelltracietony26477-create/seedance-director-community/tree/preview/v2.0) · [Historical v1.5.5](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+
+## Historical v1.5.5
+
+The original release includes exact-dialogue rules, lightweight dialogue choreography, reaction ownership, interrupted actions, blocking/camera direction, shot-level references and basic handoffs. Its installed identifier remains `seedance-director-community`, and its asset is `Seedance_Director_Community_v1.5.5.zip`.
+
+[Detailed historical notes](https://github.com/bedelltracietony26477-create/seedance-director-community/blob/main/docs/releases/v1.5.5.md) · [Original release/download](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)
+
+Use that edition's own instructions and parameters. Old and new identifiers differ, so explicitly select the intended skill if both are installed.
 
 ## From script to executable prompts
 
