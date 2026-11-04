@@ -1,24 +1,32 @@
-# 创梦 导演skills Pro V1.6 · 开源发行 v1.6.1
+# 创梦 导演skills Pro v1.6.1
 
-本次发布为原 Pro V1.6 完整技能包的开源发行。16份导演参考文档、4个原版审计脚本和原版图标完整包含；仅调整Skill名称、标题与界面安装元数据，并增加公开说明、示例和打包文件。
+**面向 AI 影视创作者的导演 Skill，组织人物表演、对白、镜头与连续性。**
 
-## Pro完整能力
+## 版本亮点
 
-- Character Performance Signature：角色长期表演签名与轻/中/重变体。
-- Dialogue Choreography、Reaction Ownership、Failed Action与Character Knowledge Boundary。
-- Screen Attention Budget：按戏剧变化分配画面注意力。
-- Prop Semantic State：持有人、手位/接触、关系模式、位置区域、功能状态及持续性。
-- Voice Identity State：声音身份、现实/画外/电话/内心模式、口型与空间处理。
-- 稳定Semantic ID与分段Reference Binding Manifest；实际镜头内绑定人物、场景、连续道具及音色。
-- Decision Contact POV、Action Insert Montage、Standard/Extended分段、八模块完整版及四模块快速版。
-- 原版对白计时、分段、提示词绑定和连续性审计脚本。
+- **角色表演签名**：围绕人物习惯、具体刺激与情绪强度组织微表演。
+- **对白编舞与反应所有权**：按语义节拍安排动作和反应，让关键画面落到承担变化的人。
+- **画面注意力预算**：根据人物策略与权力变化确定镜头的主要关注对象。
+- **道具语义状态**：衔接持有人、手位、接触方式、位置区域、功能与持续状态。
+- **声音身份与模式**：组织角色音色、现实对白、画外、电话、内心声音和口型关系。
+- **逐镜参考绑定**：在镜头中调用可见人物、正确场景方向、连续关键道具和实际音色。
+- **动作与跨段交接**：结合Failed Action、Decision Contact POV和Action Insert Montage，连接动作相位与进入/退出状态。
 
-## 下载与使用
+提供八模块完整版、四模块快速版，以及对白计时、分段容量、参考绑定和连续性辅助工具。
 
-下载 `Chuangmeng_Director_Skills_Pro_v1.6.1.zip`，入口为 `chuangmeng-director-pro/SKILL.md`，调用名 `$chuangmeng-director-pro`。
+## 快速开始
 
-原Pro技能名 `direct-episode-to-seedance-prompts-pro-v1-6` 记录于SOURCE_MANIFEST.json。该清单逐项记录原包文件校验值，参考文档、4个审计脚本及原图标保持原始内容。
+下载 `Chuangmeng_Director_Skills_Pro_v1.6.1.zip`，按平台的 Agent Skills 安装方式导入 `chuangmeng-director-pro/`。
 
-原v1.6.0社区版继续作为历史发行保留。v2.0.0-beta.1的分支、源码、Release和安装包均保持原状。
+- 入口：`SKILL.md`
+- 调用：`$chuangmeng-director-pro`
 
-代码MIT；Skill指令、方法论、文档及文字示例CC BY 4.0。作者LERler-Q，项目名“创梦 导演skills”，前身CineWeaver Director Engine。
+提供完整剧本、参考素材、目标平台和时长要求，即可开始安排分段与镜头。
+
+## 相关版本
+
+- [v2.0.0-beta.1 Community](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v2.0.0-beta.1)：轻量状态账本与局部返修预览。
+- [v1.6.0 Community](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.6.0)：逐镜可见性、动作衔接与声画连续。
+- [v1.5.5 Community](https://github.com/bedelltracietony26477-create/seedance-director-community/releases/tag/v1.5.5)：轻量对白编舞、参考绑定与基础交接。
+
+作者 **LERler-Q**。代码采用MIT；Skill指令、方法论、文档及文字示例采用CC BY 4.0。
