@@ -10,8 +10,8 @@ CineWeaver / Seedance Director Community 更名为“创梦 导演skills”，�
 
 下载附件 `Chuangmeng_Director_Skills_v1.6.0.zip`，解压后入口为 `chuangmeng-director/SKILL.md`。旧调用名可在自然语言中继续使用；安装元数据改为 `chuangmeng-director`。
 
-本版为社区稳定工作流。测试覆盖文本结构、计时规则及示例；尚未提供实际生成视频的对照验证，不承诺模型严格执行镜头或提高成片成功率。
+本版为社区稳定工作流，适合完整剧本、单场戏和局部补拍的分段提示词制作。
 
-v2.0.0-beta.1 将在独立预览分支验证轻量状态账本；私有 Pro 高级系统仍不包含在社区版。
+v2.0.0-beta.1 在独立预览分支提供轻量状态账本与局部返修流程。社区版与私有 Pro 版分别维护。
 
 代码 MIT；指令、方法论和文档 CC BY 4.0。现有 v1.5.5 历史版本保留。
